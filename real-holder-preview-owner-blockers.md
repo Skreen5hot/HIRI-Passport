@@ -21,11 +21,11 @@ An unresolved item never authorizes Codex to invent a value. Dependent implement
 
 ## Summary
 
-Checkpoint: 2026-07-20. `OWNER-RHP-01` has complete owner selections and is waiting only for the external cryptographic approval evidence required by RHP-DR-001 §8. `OWNER-RHP-02` has public HTTPS origin evidence at `https://hiri-protocol.org/`; production-mode origin enforcement and the broader hosting-control gate remain implementation/release work.
+Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655770a7ee26a72cd50d5d54226b576f`, exact-record SHA-256 `5fb10c01aa080a47f4d0ddfd58683babd1c5745e4f5fa3617839f55bf1d024f3`, and verified signed tag `RHP-DR-001-approved-2026-07-20` using public GPG fingerprint `07171B3AF6042998D1ADDEE0DE640D2A3317B186`. `OWNER-RHP-02` has public HTTPS origin evidence at `https://hiri-protocol.org/`; production-mode origin enforcement and the broader hosting-control gate remain implementation/release work.
 
 | ID | Owner-only blocker | Needed before | Current status |
 |---|---|---|---|
-| `OWNER-RHP-01` | Release identity, audience, and permitted claims | Production-mode implementation | DECIDED — signature evidence pending |
+| `OWNER-RHP-01` | Release identity, audience, and permitted claims | Production-mode implementation | CLOSED — signed evidence verified |
 | `OWNER-RHP-02` | Dedicated verified origin and DNS control | Real-data deployment | EVIDENCED — implementation controls pending |
 | `OWNER-RHP-03` | Normative resource publication authority | Real credential processing | OPEN |
 | `OWNER-RHP-04` | Trusted issuers, identity anchors, and authoritative resolvers | Real credential processing | OPEN |
@@ -45,6 +45,8 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` has complete owner selections and is wait
 ## Detailed blockers
 
 ### OWNER-RHP-01 — Release identity, audience, and permitted claims
+
+**Resolution:** Closed on 2026-07-20 by `RHP-DR-001-approved-2026-07-20`, a verified GPG-signed tag over decision commit `6808692b655770a7ee26a72cd50d5d54226b576f`. The bound decision-record SHA-256 is `5fb10c01aa080a47f4d0ddfd58683babd1c5745e4f5fa3617839f55bf1d024f3`; signer fingerprint `07171B3AF6042998D1ADDEE0DE640D2A3317B186`.
 
 **Why Codex cannot close it:** Naming a release and deciding who may use real identity material are product-owner risk decisions. Codex cannot authorize a public claim or determine the organization's risk tolerance.
 
