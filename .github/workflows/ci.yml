@@ -30,4 +30,10 @@ jobs:
       - run: npm run check
       - name: Install Chromium for browser acceptance
         run: npx playwright install --with-deps chromium
-      - run: npm run test:browser
+      - name: Run root-path browser acceptance
+        run: npm run test:browser -- --grep-invert "Pages project path"
+      - name: Run GitHub Pages subpath acceptance
+        env:
+          PWA_BASE_PATH: /HIRI-Passport/
+          HIRI_DEMO_MODE: "true"
+        run: npm run build && npx playwright test test/browser/pages-subpath.spec.ts
