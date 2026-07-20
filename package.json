@@ -19,6 +19,8 @@
     "test": "npm run test:kernel && npm run test:pwa",
     "conformance": "node scripts/check-core-conformance.mjs --write",
     "audit:bundle": "node scripts/audit-bundle.mjs dist",
+    "rhp:approval:create": "node scripts/create-rhp-approval-evidence.mjs",
+    "rhp:approval:verify": "node scripts/verify-rhp-approval-evidence.mjs",
     "check": "npm run test && npm run typecheck && npm run conformance && npm run build && npm run audit:bundle"
   },
   "engines": {

@@ -1,0 +1,25 @@
+{
+  "schema": "hiri:rhp-approval-evidence:v1",
+  "recordId": "RHP-DR-001",
+  "revision": "Final Signing Copy 1",
+  "canonicalPath": "RHP-DR-001-Real-Holder-Preview-Decision-Record-FINAL.md",
+  "decisionCommit": "<generated from the committed decision record>",
+  "fileSha256": "sha256:<generated from the exact committed file bytes>",
+  "approver": {
+    "name": "Aaron A Damiano",
+    "role": "Project Owner"
+  },
+  "approvedOptions": {
+    "D1": "A",
+    "D2": "A",
+    "D3": "A",
+    "D4": "A",
+    "D5": "A",
+    "D6": "A",
+    "exitDisposition": "A"
+  },
+  "approvalDate": "2026-07-20",
+  "reviewDate": "2026-10-20",
+  "signatureMechanism": "<gpg-signed-git-tag|gpg-detached|smime-detached|controlled-e-signature>",
+  "signerIdentity": "<public-key fingerprint or controlled e-signature identity>"
+}

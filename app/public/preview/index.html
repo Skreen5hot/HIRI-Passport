@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="description" content="Approved limitations and required disclosures for the HIRI Real Holder Preview." />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; base-uri 'none'; form-action 'none'" />
+    <link rel="stylesheet" href="../public-info.css" />
+    <title>Real Holder Preview limitations — HIRI Passport</title>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">HIRI Passport</p>
+      <h1>Real Holder Preview limitations</h1>
+      <p class="lede">This page records the owner-approved limitation language for any Real Holder Preview release. It does not announce that real-data mode is deployed or that any remaining release gate is closed.</p>
+
+      <section class="panel warning" aria-labelledby="preview-disclosure">
+        <h2 id="preview-disclosure">Required preview disclosure</h2>
+        <p>This is a preview of unfinished software built on an unfinished protocol specification. Blocking design issues remain open. Real cryptographic key material is generated and held by you. If every authorized signing and recovery method is lost or unusable, Passport-Core cannot restore control of the same holder authority.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="selective-disclosure">
+        <h2 id="selective-disclosure">Selective disclosure — not supported</h2>
+        <p>When you share a credential, the verifier receives its complete contents. Choosing individual fields in a request affects what the verifier asked for and what you agreed to share — it does not reduce what they receive. Selective disclosure is not available in this preview.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="current-status">
+        <h2 id="current-status">Confirmed-current status — not available in this preview</h2>
+        <p>This preview does not check whether a credential is currently valid. Credential status will show as "unknown." The protocol can report a real status — active, suspended, revoked, expired, or superseded — but only when a verifier is configured with a source it trusts as authoritative for that credential, and every required check succeeds. This preview configures no such source. Do not rely on it to determine whether a credential has been revoked.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="total-loss">
+        <h2 id="total-loss">Recovery after total key loss — not supported</h2>
+        <p>If every authorized signing and recovery method for your passport is lost or unusable, there is no way to restore control of the same passport identity. The operator provides no account reset. A backup you control preserves your access only if it contains or can reach an independently usable key, under whatever backup policy is separately approved for this preview.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="proximity">
+        <h2 id="proximity">Proximity transport — not supported</h2>
+        <p>Tap-to-share and nearby-device sharing are not available. Requests and presentations carry signed replay-binding values, and Passport-Core requires holders and verifiers to retain and reject defined replay tuples. That protection depends on each implementation maintaining the required state. The protocol does not prescribe how messages travel between devices and provides no transport confidentiality. No NFC, Bluetooth, or other proximity transport profile is implemented or security reviewed.</p>
+      </section>
+
+      <nav aria-label="Preview resources">
+        <a href="../">Open HIRI Passport</a>
+        <a href="../notices/">Emergency notices</a>
+      </nav>
+
+      <footer>Approved under RHP-DR-001. Mandatory review date: 2026-10-20 at 00:00:00 UTC.</footer>
+    </main>
+  </body>
+</html>
