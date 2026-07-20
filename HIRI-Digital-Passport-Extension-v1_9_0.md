@@ -16,7 +16,7 @@
 
 This specification defines a **normative extension** to the HIRI Protocol Specification v3.1.1 and the HIRI Privacy & Confidentiality Extension v1.4.1. It introduces the `hiri:PassportManifest` artifact type, the `hiri:CredentialSlot` structure, and a presentation protocol for selective credential disclosure.
 
-This extension does NOT modify any existing HIRI Protocol semantics. All verification, signing, chain integrity, and key lifecycle mechanisms defined in v3.1.1 remain unchanged. All privacy modes defined in the Privacy & Confidentiality Extension v1.4.1 remain unchanged. This extension composes them into a new artifact type.
+This extension does NOT modify any existing HIRI Protocol semantics. All verification, signing, chain integrity, and key lifecycle mechanisms defined in v3.1.1 remain unchanged. All privacy modes defined in the Privacy & Confidentiality Extension v1.4.1 remain unchanged. This extension composes them into a new artifact type. It is expected that we will rely hevely on the HIRI spec and demo site and code in this project https://github.com/Skreen5hot/HIRI
 
 ---
 
