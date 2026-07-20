@@ -21,7 +21,7 @@ An unresolved item never authorizes Codex to invent a value. Dependent implement
 
 ## Summary
 
-Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655770a7ee26a72cd50d5d54226b576f`, exact-record SHA-256 `5fb10c01aa080a47f4d0ddfd58683babd1c5745e4f5fa3617839f55bf1d024f3`, and verified signed tag `RHP-DR-001-approved-2026-07-20` using public GPG fingerprint `07171B3AF6042998D1ADDEE0DE640D2A3317B186`. `OWNER-RHP-02` has public HTTPS origin evidence at `https://hiri-protocol.org/`; production-mode origin enforcement and the broader hosting-control gate remain implementation/release work.
+Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655770a7ee26a72cd50d5d54226b576f`, exact-record SHA-256 `5fb10c01aa080a47f4d0ddfd58683babd1c5745e4f5fa3617839f55bf1d024f3`, and verified signed tag `RHP-DR-001-approved-2026-07-20` using public GPG fingerprint `07171B3AF6042998D1ADDEE0DE640D2A3317B186`. The independent-verification public key is stored at `docs/rhp/keys/aaron-damiano-rhp-2026.asc`. `OWNER-RHP-02` has public HTTPS origin evidence at `https://hiri-protocol.org/`; production-mode origin enforcement and the broader hosting-control gate remain implementation/release work.
 
 | ID | Owner-only blocker | Needed before | Current status |
 |---|---|---|---|

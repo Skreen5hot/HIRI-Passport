@@ -74,4 +74,14 @@ git push origin RHP-DR-001-approved-2026-07-20
 git tag -v RHP-DR-001-approved-2026-07-20
 ```
 
+For an independent checkout, import the repository's public verification key before verifying the tag:
+
+```powershell
+gpg --import docs/rhp/keys/aaron-damiano-rhp-2026.asc
+gpg --fingerprint 07171B3AF6042998D1ADDEE0DE640D2A3317B186
+git tag -v RHP-DR-001-approved-2026-07-20
+```
+
+The displayed fingerprint must exactly equal `07171B3AF6042998D1ADDEE0DE640D2A3317B186`. The public key is safe to distribute; the private key and passphrase must remain outside the repository.
+
 Record the tag name in the owner-blocker register and release evidence. Never commit a private signing key or passphrase.
