@@ -1,0 +1,2 @@
+import { removalWarning } from "../../services/device-service";
+export function DeviceRemoveRoute() { return <section className="panel stack"><p className="eyebrow">Remove recipient</p><h1>Stop future access.</h1><p className="error-text">{removalWarning()}</p><label className="choice"><input type="checkbox" /> I understand the old ciphertext cannot be retracted.</label><button className="button danger">Remove from fresh encryption state</button></section>; }

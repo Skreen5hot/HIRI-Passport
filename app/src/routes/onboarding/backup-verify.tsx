@@ -1,0 +1,1 @@
+export function BackupVerifyRoute() { return <section className="panel"><h1>Verify backup</h1><p className="lede">A restored backup must authenticate its manifest, chain evidence, and recipient access before it can replace local state.</p></section>; }

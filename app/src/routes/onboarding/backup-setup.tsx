@@ -1,0 +1,3 @@
+import { useState } from "react";
+import { useAppState } from "../../state/app-state";
+export function BackupSetupRoute() { const { setBackupVerified } = useAppState(); const [ready, setReady] = useState(false); return <section className="panel stack"><p className="eyebrow">Encrypted backup</p><h1>{ready ? "Backup verified." : "Make loss less likely."}</h1><p className="lede">A backup contains encrypted portfolio evidence and recipient metadata. It cannot restore the same authority after every authorized key is lost.</p>{ready ? <a className="button" href="#/home">Open Passport</a> : <button className="button" onClick={() => { setBackupVerified(true); setReady(true); }}>Create and verify demo backup</button>}</section>; }

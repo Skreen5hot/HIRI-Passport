@@ -1,0 +1,5 @@
+import { useState } from "react";
+import { copyPresentation } from "../../transports/copy-transport";
+import { downloadPresentation } from "../../transports/file-transport";
+const demo = new TextEncoder().encode('{"type":"PassportPresentation","demo":true}');
+export function PresentationDeliveryRoute() { const [status, setStatus] = useState("Not delivered"); return <section className="stack"><header><p className="eyebrow">Transport</p><h1>Choose where the exact bytes go.</h1><p className="lede">Transport does not change or verify the signed presentation.</p></header><section className="panel stack"><button className="button" onClick={() => { downloadPresentation(demo); setStatus("Downloaded to a file"); }}>Download file</button><button className="button secondary" onClick={async () => { await copyPresentation(demo); setStatus("Copied to clipboard"); }}>Copy signed JSON</button><button className="button secondary" disabled>QR unavailable for this payload</button><p role="status" className="muted">{status}</p></section></section>; }

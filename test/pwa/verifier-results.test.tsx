@@ -1,0 +1,3 @@
+// @vitest-environment node
+import { renderToStaticMarkup } from "react-dom/server"; import { describe, expect, it } from "vitest"; import { VerifierResults } from "../../app/src/routes/verifier/verifier-results";
+describe("verifier results", () => { it("keeps policy and current status distinct", () => { const html = renderToStaticMarkup(<VerifierResults report={{ cryptographicDisposition: "invalid", request: { result: "valid" }, holder: { result: "valid" }, policy: { result: "accepted" }, credentials: [] }} />); expect(html).toContain("Current status"); expect(html).toContain("Policy"); expect(html).toContain("invalid cryptography"); }); });

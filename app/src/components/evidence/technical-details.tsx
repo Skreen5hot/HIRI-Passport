@@ -1,0 +1,2 @@
+import type { CredentialRecord } from "../../types";
+export function TechnicalDetails({ record }: { record: CredentialRecord }) { return <details className="technical-details"><summary>Technical evidence</summary><dl><dt>Schema</dt><dd>{record.schema}</dd><dt>Schema hash</dt><dd className="technical">{record.schemaHash}</dd><dt>Manifest hash</dt><dd className="technical">{record.manifestHash}</dd><dt>Content hash</dt><dd className="technical">{record.contentHash}</dd><dt>Last evaluated</dt><dd>{record.updatedAt}</dd></dl></details>; }

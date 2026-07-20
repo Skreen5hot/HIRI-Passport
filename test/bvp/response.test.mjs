@@ -1,0 +1,8 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { jcsBytes } from "../../src/core/canonical.mjs";
+import { createHolderBindingResponse, validateHolderBindingResponse } from "../../src/bvp/response.mjs";
+import { authority, id, lifecycle, method, nonce, toyEd25519 } from "../helpers.mjs";
+const digest = async (bytes) => { const out = new Uint8Array(32); for (let i=0;i<bytes.length;i++) out[i%32]^=bytes[i]; return out; };
+function challenge() { const bvs=authority(1), holder=authority(2), bvsMethod=method(bvs); return { protocol:"hiri-bvp/3.0",type:"BvsHolderBindingChallenge",sessionId:id(1),challengeId:id(2),bvs:{authority:bvs,verificationMethod:bvsMethod},holderAuthority:holder,intents:[{intentId:id(3)}],nonce:nonce(1),createdAt:"2026-07-20T12:00:00Z",expiresAt:"2026-07-20T12:05:00Z",proof:{type:"Ed25519Signature2020",canonicalization:"JCS",created:"2026-07-20T12:00:00Z",verificationMethod:bvsMethod,proofPurpose:"authentication",proofValue:"z1"}}; }
+test("response copies and hashes the complete signed challenge", async () => { const c=challenge(), holderMethod=method(c.holderAuthority); const ports={clock:()=>"2026-07-20T12:01:00Z",sha256:{digest},ed25519:toyEd25519,lifecycleEvidence:lifecycle(c.holderAuthority,holderMethod)}; const response=await createHolderBindingResponse(c,[id(3)],holderMethod,ports); const result=await validateHolderBindingResponse(c,response,"2026-07-20T12:02:00Z",0,ports); assert.equal(result.result,"valid"); response.nonce=nonce(9); assert.equal((await validateHolderBindingResponse(c,response,"2026-07-20T12:02:00Z",0,ports)).error,"BVP_CHALLENGE_MISMATCH"); });

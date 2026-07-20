@@ -1,0 +1,1185 @@
+{
+  "specification": "HIRI Digital Passport Extension v2.0.0 Working Draft",
+  "generatedDeterministically": true,
+  "candidateReady": false,
+  "reason": "A Working Draft is not a conformance target and normative Candidate artifacts remain open.",
+  "blockers": [
+    "OPEN-SD-01",
+    "OPEN-HEAD-01",
+    "OPEN-CONTEXT-01",
+    "OPEN-RECOVERY-01",
+    "OPEN-TRANSPORT-01"
+  ],
+  "requirementCoverage": {
+    "total": 240,
+    "mapped": 240,
+    "ids": [
+      "REQ-ARCH-001",
+      "REQ-ARCH-002",
+      "REQ-ARCH-003",
+      "REQ-ATTEST-001",
+      "REQ-ATTEST-002",
+      "REQ-ATTEST-003",
+      "REQ-ATTEST-004",
+      "REQ-AUTH-001",
+      "REQ-AUTH-002",
+      "REQ-AUTH-003",
+      "REQ-AUTH-004",
+      "REQ-AUTH-005",
+      "REQ-BOUNDARY-001",
+      "REQ-BOUNDARY-002",
+      "REQ-BOUNDARY-003",
+      "REQ-BVS-001",
+      "REQ-BVS-002",
+      "REQ-BVS-003",
+      "REQ-BVS-004",
+      "REQ-BVS-005",
+      "REQ-BVS-006",
+      "REQ-BVS-007",
+      "REQ-CONF-001",
+      "REQ-CONF-002",
+      "REQ-CONF-003",
+      "REQ-CONF-004",
+      "REQ-CONF-005",
+      "REQ-CONF-006",
+      "REQ-CONTEXT-001",
+      "REQ-CONTEXT-002",
+      "REQ-CONTEXT-003",
+      "REQ-CREDENTIAL-001",
+      "REQ-CREDENTIAL-002",
+      "REQ-CREDENTIAL-003",
+      "REQ-CREDENTIAL-004",
+      "REQ-CREDENTIAL-005",
+      "REQ-CREDENTIAL-006",
+      "REQ-CREDENTIAL-006A",
+      "REQ-CREDENTIAL-007",
+      "REQ-CREDENTIAL-007A",
+      "REQ-CREDENTIAL-008",
+      "REQ-CREDENTIAL-009",
+      "REQ-CREDENTIAL-009A",
+      "REQ-CREDENTIAL-010",
+      "REQ-CREDENTIAL-011",
+      "REQ-CREDENTIAL-011A",
+      "REQ-CREDENTIAL-011B",
+      "REQ-CREDENTIAL-012",
+      "REQ-CREDENTIAL-013",
+      "REQ-ERROR-001",
+      "REQ-ERROR-002",
+      "REQ-ERROR-003",
+      "REQ-ERROR-004",
+      "REQ-ERROR-005",
+      "REQ-HIRI-001",
+      "REQ-HIRI-002",
+      "REQ-HIRI-003",
+      "REQ-HIRI-004",
+      "REQ-HIRI-005",
+      "REQ-HIRI-006",
+      "REQ-KEY-001",
+      "REQ-KEY-002",
+      "REQ-KEY-003",
+      "REQ-KEY-004",
+      "REQ-MIGRATE-001",
+      "REQ-MIGRATE-002",
+      "REQ-MIGRATE-003",
+      "REQ-MSG-001",
+      "REQ-MSG-002",
+      "REQ-MSG-003",
+      "REQ-MSG-004",
+      "REQ-MSG-005",
+      "REQ-MSG-006",
+      "REQ-MSG-007",
+      "REQ-MSG-008",
+      "REQ-MSG-009",
+      "REQ-MSG-010",
+      "REQ-MSG-010A",
+      "REQ-MSG-011",
+      "REQ-MSG-011A",
+      "REQ-MSG-011B",
+      "REQ-MSG-012",
+      "REQ-MSG-013",
+      "REQ-PACKAGE-001",
+      "REQ-PACKAGE-002",
+      "REQ-PACKAGE-003",
+      "REQ-PACKAGE-004",
+      "REQ-PACKAGE-005",
+      "REQ-PACKAGE-005A",
+      "REQ-PACKAGE-006",
+      "REQ-PACKAGE-007",
+      "REQ-PACKAGE-008",
+      "REQ-PACKAGE-009",
+      "REQ-PACKAGE-010",
+      "REQ-PACKAGE-011",
+      "REQ-PORTFOLIO-001",
+      "REQ-PORTFOLIO-002",
+      "REQ-PORTFOLIO-003",
+      "REQ-PORTFOLIO-004",
+      "REQ-PORTFOLIO-005",
+      "REQ-PORTFOLIO-006",
+      "REQ-PORTFOLIO-007",
+      "REQ-PORTFOLIO-008",
+      "REQ-PORTFOLIO-009",
+      "REQ-PORTFOLIO-009A",
+      "REQ-PORTFOLIO-009B",
+      "REQ-PORTFOLIO-009C",
+      "REQ-PORTFOLIO-010",
+      "REQ-PORTFOLIO-011",
+      "REQ-PORTFOLIO-012",
+      "REQ-PORTFOLIO-013",
+      "REQ-PORTFOLIO-014",
+      "REQ-PORTFOLIO-015",
+      "REQ-PORTFOLIO-016",
+      "REQ-PORTFOLIO-017",
+      "REQ-PORTFOLIO-018",
+      "REQ-PRESENT-001",
+      "REQ-PRESENT-001A",
+      "REQ-PRESENT-002",
+      "REQ-PRESENT-003",
+      "REQ-PRESENT-004",
+      "REQ-PRESENT-005",
+      "REQ-PRESENT-006",
+      "REQ-PRESENT-007",
+      "REQ-PRESENT-008",
+      "REQ-PRESENT-009",
+      "REQ-PRESENT-010",
+      "REQ-PRESENT-010A",
+      "REQ-PRESENT-010B",
+      "REQ-PRESENT-011",
+      "REQ-PRESENT-012",
+      "REQ-PRESENT-013",
+      "REQ-PRESENT-014",
+      "REQ-PRESENT-015",
+      "REQ-PRESENT-016",
+      "REQ-PRESENT-017",
+      "REQ-REPORT-001",
+      "REQ-REPORT-002",
+      "REQ-REPORT-003",
+      "REQ-REPORT-004",
+      "REQ-REQUEST-001",
+      "REQ-REQUEST-002",
+      "REQ-REQUEST-003",
+      "REQ-REQUEST-004",
+      "REQ-REQUEST-005",
+      "REQ-REQUEST-005A",
+      "REQ-REQUEST-006",
+      "REQ-REQUEST-007",
+      "REQ-REQUEST-008",
+      "REQ-REQUEST-009",
+      "REQ-REQUEST-009A",
+      "REQ-REQUEST-010",
+      "REQ-REQUEST-011",
+      "REQ-REQUEST-011A",
+      "REQ-REQUEST-011B",
+      "REQ-REQUEST-011C",
+      "REQ-REQUEST-012",
+      "REQ-REQUEST-013",
+      "REQ-REQUEST-014",
+      "REQ-REQUEST-015",
+      "REQ-REQUEST-016",
+      "REQ-REQUEST-017",
+      "REQ-REQUEST-018",
+      "REQ-SCHEMA-001",
+      "REQ-SCHEMA-002",
+      "REQ-SCHEMA-003",
+      "REQ-SCHEMA-004",
+      "REQ-SCHEMA-005",
+      "REQ-SCOPE-001",
+      "REQ-SCOPE-002",
+      "REQ-SCOPE-003",
+      "REQ-SD-001",
+      "REQ-SD-001A",
+      "REQ-SD-002",
+      "REQ-SEC-001",
+      "REQ-SEC-002",
+      "REQ-SEC-003",
+      "REQ-SEC-004",
+      "REQ-SEC-005",
+      "REQ-SEC-006",
+      "REQ-SEC-007",
+      "REQ-SEC-008",
+      "REQ-SEC-009",
+      "REQ-SEC-010",
+      "REQ-SEC-011",
+      "REQ-SEC-011A",
+      "REQ-SEC-011B",
+      "REQ-SEC-012",
+      "REQ-SEC-013",
+      "REQ-SEC-014",
+      "REQ-SEC-015",
+      "REQ-SEC-016",
+      "REQ-SEC-017",
+      "REQ-SEC-018",
+      "REQ-SEC-019",
+      "REQ-SELF-001",
+      "REQ-SELF-001A",
+      "REQ-SELF-001B",
+      "REQ-SELF-001C",
+      "REQ-SELF-001D",
+      "REQ-SELF-002",
+      "REQ-SELF-003",
+      "REQ-SELF-003A",
+      "REQ-SELF-004",
+      "REQ-SELF-005",
+      "REQ-STATUS-001",
+      "REQ-STATUS-002",
+      "REQ-STATUS-003",
+      "REQ-STATUS-004",
+      "REQ-STATUS-005",
+      "REQ-STATUS-005A",
+      "REQ-STATUS-006",
+      "REQ-STATUS-006A",
+      "REQ-STATUS-007",
+      "REQ-STATUS-008",
+      "REQ-STATUS-009",
+      "REQ-STATUS-010",
+      "REQ-STATUS-011",
+      "REQ-STATUS-012",
+      "REQ-STATUS-013",
+      "REQ-STATUS-014",
+      "REQ-STATUS-015",
+      "REQ-VERIFY-001",
+      "REQ-VERIFY-002",
+      "REQ-VERIFY-C-001",
+      "REQ-VERIFY-C-002",
+      "REQ-VERIFY-C-003",
+      "REQ-VERIFY-C-004",
+      "REQ-VERIFY-C-005",
+      "REQ-VERIFY-C-006",
+      "REQ-VERIFY-H-001",
+      "REQ-VERIFY-H-002",
+      "REQ-VERIFY-I-001",
+      "REQ-VERIFY-I-002",
+      "REQ-VERIFY-I-003",
+      "REQ-VERIFY-P-001",
+      "REQ-VERIFY-P-002",
+      "REQ-VERIFY-P-003",
+      "REQ-VERIFY-R-001",
+      "REQ-VERIFY-R-002"
+    ],
+    "mappings": {
+      "REQ-ARCH-001": [
+        "ports.test.mjs"
+      ],
+      "REQ-ARCH-002": [
+        "ports.test.mjs"
+      ],
+      "REQ-ARCH-003": [
+        "ports.test.mjs"
+      ],
+      "REQ-ATTEST-001": [
+        "mode5.test.mjs"
+      ],
+      "REQ-ATTEST-002": [
+        "mode5.test.mjs"
+      ],
+      "REQ-ATTEST-003": [
+        "mode5.test.mjs"
+      ],
+      "REQ-ATTEST-004": [
+        "mode5.test.mjs"
+      ],
+      "REQ-AUTH-001": [
+        "authority.test.mjs"
+      ],
+      "REQ-AUTH-002": [
+        "authority.test.mjs"
+      ],
+      "REQ-AUTH-003": [
+        "authority.test.mjs"
+      ],
+      "REQ-AUTH-004": [
+        "authority.test.mjs"
+      ],
+      "REQ-AUTH-005": [
+        "authority.test.mjs"
+      ],
+      "REQ-BOUNDARY-001": [
+        "credential.test.mjs",
+        "presentation.test.mjs"
+      ],
+      "REQ-BOUNDARY-002": [
+        "credential.test.mjs",
+        "presentation.test.mjs"
+      ],
+      "REQ-BOUNDARY-003": [
+        "credential.test.mjs",
+        "presentation.test.mjs"
+      ],
+      "REQ-BVS-001": [
+        "bvs-evidence.test.mjs"
+      ],
+      "REQ-BVS-002": [
+        "bvs-evidence.test.mjs"
+      ],
+      "REQ-BVS-003": [
+        "bvs-evidence.test.mjs"
+      ],
+      "REQ-BVS-004": [
+        "bvs-evidence.test.mjs"
+      ],
+      "REQ-BVS-005": [
+        "bvs-evidence.test.mjs"
+      ],
+      "REQ-BVS-006": [
+        "bvs-evidence.test.mjs"
+      ],
+      "REQ-BVS-007": [
+        "bvs-evidence.test.mjs"
+      ],
+      "REQ-CONF-001": [
+        "../conformance/core-requirements.test.mjs"
+      ],
+      "REQ-CONF-002": [
+        "../conformance/core-requirements.test.mjs"
+      ],
+      "REQ-CONF-003": [
+        "../conformance/core-requirements.test.mjs"
+      ],
+      "REQ-CONF-004": [
+        "../conformance/core-requirements.test.mjs"
+      ],
+      "REQ-CONF-005": [
+        "../conformance/core-requirements.test.mjs"
+      ],
+      "REQ-CONF-006": [
+        "../conformance/core-requirements.test.mjs"
+      ],
+      "REQ-CONTEXT-001": [
+        "resources.test.mjs"
+      ],
+      "REQ-CONTEXT-002": [
+        "resources.test.mjs"
+      ],
+      "REQ-CONTEXT-003": [
+        "resources.test.mjs"
+      ],
+      "REQ-CREDENTIAL-001": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-002": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-003": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-004": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-005": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-006": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-006A": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-007": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-007A": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-008": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-009": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-009A": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-010": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-011": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-011A": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-011B": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-012": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-CREDENTIAL-013": [
+        "credential.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-ERROR-001": [
+        "errors.test.mjs",
+        "../conformance/core-errors.test.mjs"
+      ],
+      "REQ-ERROR-002": [
+        "errors.test.mjs",
+        "../conformance/core-errors.test.mjs"
+      ],
+      "REQ-ERROR-003": [
+        "errors.test.mjs",
+        "../conformance/core-errors.test.mjs"
+      ],
+      "REQ-ERROR-004": [
+        "errors.test.mjs",
+        "../conformance/core-errors.test.mjs"
+      ],
+      "REQ-ERROR-005": [
+        "errors.test.mjs",
+        "../conformance/core-errors.test.mjs"
+      ],
+      "REQ-HIRI-001": [
+        "manifest.test.mjs"
+      ],
+      "REQ-HIRI-002": [
+        "manifest.test.mjs"
+      ],
+      "REQ-HIRI-003": [
+        "manifest.test.mjs"
+      ],
+      "REQ-HIRI-004": [
+        "manifest.test.mjs"
+      ],
+      "REQ-HIRI-005": [
+        "manifest.test.mjs"
+      ],
+      "REQ-HIRI-006": [
+        "manifest.test.mjs"
+      ],
+      "REQ-KEY-001": [
+        "authority.test.mjs"
+      ],
+      "REQ-KEY-002": [
+        "authority.test.mjs"
+      ],
+      "REQ-KEY-003": [
+        "authority.test.mjs"
+      ],
+      "REQ-KEY-004": [
+        "authority.test.mjs"
+      ],
+      "REQ-MIGRATE-001": [
+        "migration.test.mjs"
+      ],
+      "REQ-MIGRATE-002": [
+        "migration.test.mjs"
+      ],
+      "REQ-MIGRATE-003": [
+        "migration.test.mjs"
+      ],
+      "REQ-MSG-001": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-002": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-003": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-004": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-005": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-006": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-007": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-008": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-009": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-010": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-010A": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-011": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-011A": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-011B": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-012": [
+        "message.test.mjs"
+      ],
+      "REQ-MSG-013": [
+        "message.test.mjs"
+      ],
+      "REQ-PACKAGE-001": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-002": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-003": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-004": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-005": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-005A": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-006": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-007": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-008": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-009": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-010": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PACKAGE-011": [
+        "presentation-package.test.mjs"
+      ],
+      "REQ-PORTFOLIO-001": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-002": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-003": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-004": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-005": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-006": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-007": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-008": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-009": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-009A": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-009B": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-009C": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-010": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-011": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-012": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-013": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-014": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-015": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-016": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-017": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PORTFOLIO-018": [
+        "portfolio-crypto.test.mjs",
+        "portfolio-records.test.mjs"
+      ],
+      "REQ-PRESENT-001": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-001A": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-002": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-003": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-004": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-005": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-006": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-007": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-008": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-009": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-010": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-010A": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-010B": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-011": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-012": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-013": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-014": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-015": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-016": [
+        "presentation.test.mjs"
+      ],
+      "REQ-PRESENT-017": [
+        "presentation.test.mjs"
+      ],
+      "REQ-REPORT-001": [
+        "report.test.mjs"
+      ],
+      "REQ-REPORT-002": [
+        "report.test.mjs"
+      ],
+      "REQ-REPORT-003": [
+        "report.test.mjs"
+      ],
+      "REQ-REPORT-004": [
+        "report.test.mjs"
+      ],
+      "REQ-REQUEST-001": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-002": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-003": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-004": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-005": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-005A": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-006": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-007": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-008": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-009": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-009A": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-010": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-011": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-011A": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-011B": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-011C": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-012": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-013": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-014": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-015": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-016": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-017": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-REQUEST-018": [
+        "disclosure-request.test.mjs",
+        "request-session.test.mjs"
+      ],
+      "REQ-SCHEMA-001": [
+        "resources.test.mjs",
+        "credential.test.mjs"
+      ],
+      "REQ-SCHEMA-002": [
+        "resources.test.mjs",
+        "credential.test.mjs"
+      ],
+      "REQ-SCHEMA-003": [
+        "resources.test.mjs",
+        "credential.test.mjs"
+      ],
+      "REQ-SCHEMA-004": [
+        "resources.test.mjs",
+        "credential.test.mjs"
+      ],
+      "REQ-SCHEMA-005": [
+        "resources.test.mjs",
+        "credential.test.mjs"
+      ],
+      "REQ-SCOPE-001": [
+        "ports.test.mjs",
+        "credential.test.mjs"
+      ],
+      "REQ-SCOPE-002": [
+        "ports.test.mjs",
+        "credential.test.mjs"
+      ],
+      "REQ-SCOPE-003": [
+        "ports.test.mjs",
+        "credential.test.mjs"
+      ],
+      "REQ-SD-001": [
+        "../conformance/core-requirements.test.mjs"
+      ],
+      "REQ-SD-001A": [
+        "../conformance/core-requirements.test.mjs"
+      ],
+      "REQ-SD-002": [
+        "../conformance/core-requirements.test.mjs"
+      ],
+      "REQ-SEC-001": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-002": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-003": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-004": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-005": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-006": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-007": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-008": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-009": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-010": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-011": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-011A": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-011B": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-012": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-013": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-014": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-015": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-016": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-017": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-018": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SEC-019": [
+        "security-state.test.mjs",
+        "portfolio-crypto.test.mjs"
+      ],
+      "REQ-SELF-001": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-SELF-001A": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-SELF-001B": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-SELF-001C": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-SELF-001D": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-SELF-002": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-SELF-003": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-SELF-003A": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-SELF-004": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-SELF-005": [
+        "self-assertion.test.mjs"
+      ],
+      "REQ-STATUS-001": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-002": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-003": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-004": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-005": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-005A": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-006": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-006A": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-007": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-008": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-009": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-010": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-011": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-012": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-013": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-014": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-STATUS-015": [
+        "status.test.mjs",
+        "credential-chain.test.mjs"
+      ],
+      "REQ-VERIFY-001": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-002": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-C-001": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-C-002": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-C-003": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-C-004": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-C-005": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-C-006": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-H-001": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-H-002": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-I-001": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-I-002": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-I-003": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-P-001": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-P-002": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-P-003": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-R-001": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ],
+      "REQ-VERIFY-R-002": [
+        "verify-rhc.test.mjs",
+        "identity-policy.test.mjs"
+      ]
+    }
+  },
+  "errorCoverage": {
+    "total": 31,
+    "codes": [
+      "ARTIFACT_HASH_MISMATCH",
+      "ARTIFACT_MISSING",
+      "BVS_POLICY_UNTRUSTED",
+      "CREDENTIAL_NOT_IN_CURRENT_CHAIN",
+      "CREDENTIAL_NOT_YET_VALID",
+      "CREDENTIAL_SCHEMA_INVALID",
+      "CURRENT_HEAD_UNKNOWN",
+      "DISCLOSURE_MODE_UNSUPPORTED",
+      "HIRI_CHAIN_INVALID",
+      "HIRI_MANIFEST_INVALID",
+      "IDENTIFIER_INVALID",
+      "ISSUER_IDENTITY_UNKNOWN",
+      "KEY_STATE_UNKNOWN",
+      "LIFETIME_EXCEEDED",
+      "MESSAGE_EXPIRED",
+      "MESSAGE_MALFORMED",
+      "MESSAGE_NOT_YET_VALID",
+      "NONCE_INVALID",
+      "POLICY_REJECTED",
+      "PROVENANCE_MISMATCH",
+      "REQUEST_BINDING_MISMATCH",
+      "REQUEST_REPLAYED",
+      "REQUIRED_ITEM_MISSING",
+      "RESOURCE_LIMIT_EXCEEDED",
+      "SIGNATURE_INVALID",
+      "SIGNATURE_METHOD_UNAUTHORIZED",
+      "STATUS_TRANSITION_INVALID",
+      "SUBJECT_BINDING_MISMATCH",
+      "UNKNOWN_MEMBER",
+      "UNREQUESTED_DISCLOSURE",
+      "UNSUPPORTED_PROTOCOL"
+    ]
+  },
+  "roleCoverage": {
+    "holder": true,
+    "verifier": true,
+    "issuer": true,
+    "bvs": true,
+    "resolver": true
+  },
+  "testFiles": [
+    "authority.test.mjs",
+    "bvs-evidence.test.mjs",
+    "credential-chain.test.mjs",
+    "credential.test.mjs",
+    "disclosure-request.test.mjs",
+    "errors.test.mjs",
+    "identity-policy.test.mjs",
+    "manifest.test.mjs",
+    "message.test.mjs",
+    "migration.test.mjs",
+    "mode5.test.mjs",
+    "portfolio-crypto.test.mjs",
+    "portfolio-records.test.mjs",
+    "ports.test.mjs",
+    "presentation-package.test.mjs",
+    "presentation.test.mjs",
+    "proof.test.mjs",
+    "report.test.mjs",
+    "request-session.test.mjs",
+    "resources.test.mjs",
+    "scalars.test.mjs",
+    "security-state.test.mjs",
+    "self-assertion.test.mjs",
+    "status.test.mjs",
+    "verify-rhc.test.mjs"
+  ]
+}

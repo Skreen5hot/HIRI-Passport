@@ -1,0 +1,2 @@
+import { test, expect } from "./fixtures";
+test("service worker is base scoped when supported", async ({ page }) => { await page.goto("/#/"); await page.waitForFunction(() => !('serviceWorker' in navigator) || navigator.serviceWorker.ready); const scope = await page.evaluate(async () => 'serviceWorker' in navigator ? (await navigator.serviceWorker.ready).scope : "unsupported"); expect(scope).toMatch(/(?:4174\/|unsupported)$/u); });

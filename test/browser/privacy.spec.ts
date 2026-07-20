@@ -1,0 +1,2 @@
+import { test, expect } from "./fixtures";
+test("app loads no third-party runtime requests", async ({ page }) => { const origins = new Set<string>(); page.on("request", request => origins.add(new URL(request.url()).origin)); await page.goto("/#/home"); await expect(page.getByRole("heading", { level: 1 })).toBeVisible(); expect([...origins].every(origin => origin === "http://127.0.0.1:4174")).toBe(true); });

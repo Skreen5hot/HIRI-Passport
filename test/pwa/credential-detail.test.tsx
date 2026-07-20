@@ -1,0 +1,3 @@
+// @vitest-environment node
+import { renderToStaticMarkup } from "react-dom/server"; import { describe, expect, it } from "vitest"; import { DEMO_CREDENTIALS } from "../../app/src/demo/demo-fixtures"; import { CredentialDetail } from "../../app/src/routes/credential/credential-detail";
+describe("credential detail", () => { it("shows cryptography, status, issuer identity, provenance, and policy separately", () => { const html = renderToStaticMarkup(<CredentialDetail record={DEMO_CREDENTIALS[0]} />); for (const label of ["Cryptography", "Credential status", "Issuer identity", "Provenance", "Policy"]) expect(html).toContain(label); }); });

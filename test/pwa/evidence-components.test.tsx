@@ -1,0 +1,2 @@
+import { render, screen } from "@testing-library/react"; import { describe, expect, it } from "vitest"; import { EvidenceDimension } from "../../app/src/components/evidence/evidence-dimension";
+describe("evidence dimension", () => { it("names the evidence state without relying on color", () => { render(<EvidenceDimension label="Cryptography" value="invalid" />); expect(screen.getByText("Cryptography")).toBeVisible(); expect(screen.getByText("invalid")).toBeVisible(); }); });

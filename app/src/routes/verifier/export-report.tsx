@@ -1,0 +1,3 @@
+import { useState } from "react";
+import { describeRetention, type RetentionDecision } from "../../services/retention-policy";
+export function ExportReportRoute() { const [retention, setRetention] = useState<RetentionDecision>("none"); return <section className="panel stack"><p className="eyebrow">Report export</p><h1>Keep evidence parameters intact.</h1><div className="field"><label htmlFor="retention">Local retention</label><select id="retention" value={retention} onChange={event => setRetention(event.target.value as RetentionDecision)}><option value="none">Retain nothing</option><option value="report-only">Report only</option></select></div><p className="muted">{describeRetention(retention)}</p><button className="button">Download JSON report</button></section>; }

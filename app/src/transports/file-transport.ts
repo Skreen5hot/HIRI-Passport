@@ -1,0 +1,1 @@
+export function downloadPresentation(bytes: Uint8Array, filename = "hiri-passport-presentation.json") { const blob = new Blob([new Uint8Array(bytes)], { type: "application/json" }); const url = URL.createObjectURL(blob); const anchor = document.createElement("a"); anchor.href = url; anchor.download = filename; anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 0); }

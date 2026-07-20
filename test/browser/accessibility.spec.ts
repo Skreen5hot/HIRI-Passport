@@ -1,0 +1,2 @@
+import AxeBuilder from "@axe-core/playwright"; import { test, expect } from "./fixtures";
+test("mobile-first welcome has no serious automated accessibility violations", async ({ page }) => { await page.setViewportSize({ width: 320, height: 720 }); await page.goto("/#/"); await expect(page.getByRole("heading", { level: 1 })).toBeVisible(); expect(await page.evaluate(() => window.scrollY)).toBe(0); const results = await new AxeBuilder({ page }).analyze(); expect(results.violations.filter(item => ["serious", "critical"].includes(item.impact ?? ""))).toEqual([]); });

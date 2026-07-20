@@ -1,0 +1,2 @@
+import { render, screen } from "@testing-library/react"; import { describe, expect, it } from "vitest"; import { AppShell } from "../../app/src/components/app-shell";
+describe("app shell", () => { it("provides landmarks, skip navigation, and a synthetic-data warning", () => { render(<AppShell demo><p>Content</p></AppShell>); expect(screen.getByRole("link", { name: "Skip to content" })).toBeVisible(); expect(screen.getByRole("navigation", { name: "Primary navigation" })).toBeVisible(); expect(screen.getByText(/no real keys or credentials/i)).toBeVisible(); }); });

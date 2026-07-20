@@ -1,0 +1,1 @@
+export function EmptyState() { return <section className="panel"><p className="eyebrow">Private portfolio</p><h2>No records yet</h2><p className="muted">Adding a credential creates a private local record. It does not publish portfolio membership.</p><a className="button" href="#/acquire">Add a credential</a></section>; }

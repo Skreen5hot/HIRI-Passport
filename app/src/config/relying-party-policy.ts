@@ -1,0 +1,1 @@
+export const DEFAULT_POLICY = Object.freeze({ id: "hiri-passport:display-only", version: "1", evaluate: () => ({ result: "not-evaluated", reasons: [{ predicate: "Holder application does not make relying-party decisions" }] }) });

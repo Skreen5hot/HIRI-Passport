@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="HIRI Passport">
+  <rect width="512" height="512" rx="112" fill="#071411"/>
+  <circle cx="256" cy="256" r="176" fill="none" stroke="#80e0b8" stroke-width="10"/>
+  <path d="M166 142h52v88h76v-88h52v228h-52v-92h-76v92h-52z" fill="#80e0b8"/>
+</svg>

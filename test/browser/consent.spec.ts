@@ -1,0 +1,2 @@
+import { test, expect } from "./fixtures";
+test("decline remains available during the synthetic consent preview", async ({ page }) => { await page.goto("/#/request"); await page.getByRole("button", { name: "Load synthetic consent preview" }).click(); await page.getByRole("button", { name: "Inspect request" }).click(); await expect(page.getByRole("button", { name: "Decline request" })).toBeVisible(); await expect(page.getByText("Unverified synthetic preview")).toBeVisible(); });

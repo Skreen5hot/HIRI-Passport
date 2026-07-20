@@ -1,0 +1,2 @@
+import { describe, expect, it } from "vitest"; import { probeCryptoCapabilities } from "../../app/src/adapters/crypto-capabilities";
+describe("capability probe", () => { it("executes required algorithms instead of sniffing the user agent", async () => { const value = await probeCryptoCapabilities(); expect(value.random).toBe(true); expect(value.sha256).toBe(true); expect(typeof value.protocolReady).toBe("boolean"); }); });

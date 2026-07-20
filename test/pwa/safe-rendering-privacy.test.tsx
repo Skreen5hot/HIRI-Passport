@@ -1,0 +1,2 @@
+import { render, screen } from "@testing-library/react"; import { describe, expect, it } from "vitest"; import { SafeText, safeExternalText } from "../../app/src/security/safe-text";
+describe("safe external rendering", () => { it("renders external markup as inert bidirectional text", () => { render(<SafeText>{"<img src=x onerror=alert(1)>"}</SafeText>); expect(screen.getByText(/<img/).tagName).toBe("BDI"); expect(document.querySelector("img")).toBeNull(); }); it("bounds control-bearing strings", () => expect(safeExternalText("a\u0000b", 3)).toHaveLength(3)); });

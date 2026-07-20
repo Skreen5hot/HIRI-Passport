@@ -1,0 +1,2 @@
+import type { RequestValidation } from "../../services/request-service";
+export function RequestValidationView({ validation }: { validation: RequestValidation }) { return <section className="panel" aria-live="polite"><p className="eyebrow">Request validation</p><h2>{validation.result === "valid" ? "Ready for consent review" : "Request blocked"}</h2>{validation.reasons.length > 0 && <ul className="check-list">{validation.reasons.map(reason => <li key={reason}>{reason}</li>)}</ul>}</section>; }

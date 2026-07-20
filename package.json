@@ -1,0 +1,47 @@
+{
+  "name": "hiri-passport",
+  "version": "0.0.0-working-draft",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "hiri-passport": "src/cli/hiri-passport.mjs"
+  },
+  "scripts": {
+    "generate:icons": "node scripts/generate-icons.mjs",
+    "prebuild": "npm run generate:icons",
+    "dev": "vite",
+    "build": "vite build && node scripts/build-service-worker.mjs && node scripts/check-pages-artifact.mjs dist",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test:kernel": "node scripts/run-kernel-tests.mjs",
+    "test:pwa": "vitest run",
+    "test:browser": "npm run build && playwright test",
+    "test": "npm run test:kernel && npm run test:pwa",
+    "conformance": "node scripts/check-core-conformance.mjs --write",
+    "audit:bundle": "node scripts/audit-bundle.mjs dist",
+    "check": "npm run test && npm run typecheck && npm run conformance && npm run build && npm run audit:bundle"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.61.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "26.1.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.3",
+    "axe-core": "4.12.1",
+    "fake-indexeddb": "6.2.5",
+    "jsdom": "29.1.1",
+    "typescript": "7.0.2",
+    "vite": "8.1.5",
+    "vitest": "4.1.10"
+  }
+}

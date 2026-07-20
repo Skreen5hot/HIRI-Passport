@@ -1,0 +1,2 @@
+import { test, expect } from "./fixtures";
+test("warm shell survives an offline navigation", async ({ page, context }) => { await page.goto("/#/home"); await page.evaluate(async () => { await navigator.serviceWorker.ready; }); await page.waitForFunction(() => navigator.serviceWorker.controller !== null); await context.setOffline(true); await page.reload(); await expect(page.getByRole("heading", { level: 1 })).toBeVisible(); await context.setOffline(false); });

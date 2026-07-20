@@ -1,0 +1,1 @@
+export function LocalAuthRoute() { return <section className="panel"><p className="eyebrow">Local authentication</p><h1>Confirm on this device.</h1><p className="lede">Device authentication may gate local key use. It is not issuer identity or Passport authority evidence.</p></section>; }
