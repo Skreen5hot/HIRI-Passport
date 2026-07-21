@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { assetUrl } from "../config/base-path";
 import { hashHref } from "../navigation/router";
 
 const navigation = [
@@ -19,6 +20,6 @@ export function AppShell({ children, demo }: { children: ReactNode; demo: boolea
       </nav>
     </header>
     <main id="main-content" tabIndex={-1}>{children}</main>
-    <footer><span>Local-first identity tools</span><span>Working Draft · no conformance claim</span></footer>
+    <footer><span>Local-first identity tools</span><a href={assetUrl("preview/")}>Preview limitations and platform support</a><span>Working Draft · no conformance claim</span></footer>
   </div>;
 }

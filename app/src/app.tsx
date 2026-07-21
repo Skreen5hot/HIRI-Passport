@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { AppShell } from "./components/app-shell";
+import { PwaUpdateCoordinator } from "./components/pwa/update-coordinator";
 import { isSyntheticProjectOrigin } from "./config/base-path";
 import { parseHash } from "./navigation/router";
 import { ROUTES } from "./navigation/routes";
@@ -12,5 +13,5 @@ export function App() {
   const route = useMemo(() => parseHash(hash), [hash]);
   const selected = ROUTES[route.path] ?? { title: "Not found", content: <section className="panel"><p className="eyebrow">404</p><h1>That route is not part of this Passport.</h1><a className="button" href="#/home">Return home</a></section> };
   useEffect(() => { document.title = `${selected.title} · HIRI Passport`; requestAnimationFrame(() => document.querySelector<HTMLElement>("#main-content")?.focus({ preventScroll: true })); }, [selected.title]);
-  return <AppShell demo={__HIRI_DEMO_MODE__ || isSyntheticProjectOrigin()}>{selected.content}</AppShell>;
+  return <><AppShell demo={__HIRI_DEMO_MODE__ || isSyntheticProjectOrigin()}>{selected.content}</AppShell><PwaUpdateCoordinator /></>;
 }

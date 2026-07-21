@@ -6,7 +6,7 @@
       "files": ["docs/rhp/release-contract.md"],
       "depends_on": [],
       "covers": ["PWA Release Gate Level 2", "Core §18", "UX §17", "BVP §17"],
-      "scope": "Define Real Holder Preview as a real-data, holder-first, non-conformant release distinct from the Synthetic Demo and any future Passport-Interoperable or Passport-Hardened release. Record the allowed audience, supported holder workflows, excluded issuer/BVS services, unsupported selective disclosure, confirmed-current status limitations, no total-loss recovery, no proximity-security claim, required dedicated origin, and fail-closed behavior. Make owner approval of audience and public claims an explicit release input rather than an implementation assumption."
+      "scope": "Define Real Holder Preview as a real-data, holder-first, non-conformant release distinct from the Synthetic Demo and any future Passport-Interoperable or Passport-Hardened release. Record the allowed audience, evidence-limited platform availability, local file/paste-only Disclosure Request ingress with no live verifier endpoint, supported holder workflows, excluded issuer/BVS services, unsupported selective disclosure, confirmed-current status limitations, no total-loss recovery, no proximity-security claim, required dedicated origin, emergency-update limitations, and fail-closed behavior. Make owner approval of audience and public claims an explicit release input rather than an implementation assumption."
     },
     {
       "id": "record-rhp-owner-blockers",
@@ -14,7 +14,7 @@
       "files": ["real-holder-preview-owner-blockers.md"],
       "depends_on": ["record-rhp-release-contract"],
       "covers": ["PWA Release Gate Level 2", "Core §18", "Core §19", "UX §18", "BVP §17"],
-      "scope": "Maintain the authoritative register of decisions, external relationships, credentials, governance evidence, independent reviews, and risk acceptances that only the project owner can supply. Every item has a stable OWNER-RHP identifier, safe default, acceptable evidence, and dependent plan units. The register never contains secrets, never treats technical success as owner approval, and never permits an unresolved value to be invented or bypassed."
+      "scope": "Maintain the authoritative register of decisions, external relationships, credentials, governance evidence, independent reviews, and risk acceptances that only the project owner can supply. Require a named resource reviewer independent of the byte author plus primary and backup release/incident operators using separate accounts, signing identities, and private keys. Every item has a stable OWNER-RHP identifier, safe default, acceptable evidence, and dependent plan units. The register never contains secrets, never treats technical success as owner approval, and never permits an unresolved value to be invented or bypassed."
     },
     {
       "id": "record-rhp-threat-and-privacy-model",
@@ -30,7 +30,7 @@
       "files": ["docs/rhp/resource-governance.md", "docs/rhp/trust-configuration-policy.md"],
       "depends_on": ["record-rhp-release-contract", "record-rhp-owner-blockers"],
       "covers": ["Core §6.2", "Core §6.3", "Core §14", "Core §15", "BVP §3", "OPEN-CONTEXT-01", "OPEN-HEAD-01"],
-      "scope": "Define who may approve contexts, schemas, evidence profiles, adapter profiles, hashes, identity anchors, issuer-authoritative current-head origins, artifact resolvers, and relying-party policy. Specify immutable publication, versioning, correction, deprecation, compromise, review, and rollback procedures. Require all unapproved resources and identities to remain unavailable or unknown, and distinguish project preview vectors from official conformance vectors."
+      "scope": "Define who may approve contexts, schemas, evidence profiles, adapter profiles, hashes, identity anchors, issuer-authoritative current-head origins, artifact resolvers, and relying-party policy. Place every initial project resource below the explicit `https://hiri-protocol.org/resources/preview/rhp-2026-07/` namespace and require review by a named person other than the byte author. Specify immutable publication, versioning, correction, deprecation, compromise, review, and rollback procedures. Require all unapproved resources and identities to remain unavailable or unknown, and distinguish project preview vectors from official conformance vectors."
     },
     {
       "id": "record-rhp-browser-capability-matrix",
@@ -38,7 +38,7 @@
       "files": ["docs/rhp/browser-capability-matrix.md"],
       "depends_on": ["record-rhp-threat-and-privacy-model", "record-rhp-owner-blockers"],
       "covers": ["UX Appendix A", "UX §11", "UX §16.3", "PWA Release Gate Level 2"],
-      "scope": "Record the owner-approved operating-system, browser, version, and device matrix for Ed25519, X25519, AES-GCM, HKDF, non-extractable CryptoKeys, IndexedDB CryptoKey persistence, WebAuthn user verification, storage persistence, service workers, file handling, clipboard, and installability. Define exact inspect-only or unsupported behavior for missing capabilities and require dated physical-device evidence before release."
+      "scope": "Record the owner-approved operating-system, browser, version, and device matrix for Ed25519, X25519, AES-GCM, HKDF, non-extractable CryptoKeys, IndexedDB CryptoKey persistence, WebAuthn user verification, storage persistence, service workers, file handling, clipboard, and installability. Define exact inspect-only or unsupported behavior and an upfront public availability disclosure. Require dated physical-device evidence for waiting-worker prompts, multi-tab activation, safe sensitive-operation boundaries, `controllerchange` reload, measured connected-active-client convergence, and offline/reconnect behavior without claiming a finite offline bound."
     },
     {
       "id": "scaffold-rhp-toolchain",
@@ -62,7 +62,7 @@
       "files": ["app/src/config/runtime-config.ts", "config/holder-preview.example.json", "test/pwa/runtime-config.test.ts"],
       "depends_on": ["record-rhp-resource-governance", "implement-runtime-mode-boundary"],
       "covers": ["Core §6.2", "Core §14", "Core §15", "UX §5.2"],
-      "scope": "Define and strictly validate the public, secret-free preview configuration for canonical origin, permitted resolver and delivery origins, resource-manifest digest, identity-anchor set version, policy version, supported capabilities, and release identifier. Reject unknown members, insecure URLs, wildcard trust, placeholder domains, absent hashes, production secrets, and configuration that enables an open capability. Ship only an inert example profile until owner-supplied public values pass validation."
+      "scope": "Define and strictly validate the public, secret-free preview configuration for canonical origin, permitted resolver and delivery origins, resource-manifest digest, identity-anchor set version, policy version, supported capabilities, capability-evidence hash and `notAfter`, and release identifier. Check evidence expiry at startup and before every authority creation or sensitive operation; missing, invalid, or expired evidence produces inspect-only behavior before key/state access. Treat the browser clock as a documented correctness limitation, not tamper-resistant revocation, and perform no unapproved network check. Reject unknown members, insecure URLs, wildcard trust, placeholder domains, absent hashes, production secrets, and configuration that enables an open capability. Ship only an inert example profile until owner-supplied public values pass validation."
     },
     {
       "id": "implement-origin-isolation",
@@ -110,7 +110,7 @@
       "files": ["app/src/adapters/local-auth.ts", "app/src/routes/onboarding/local-auth.tsx", "app/src/components/sensitive-surface.tsx", "test/pwa/local-authentication.test.tsx"],
       "depends_on": ["record-rhp-browser-capability-matrix", "harden-protected-key-storage"],
       "covers": ["UX §6.4", "UX §9.4", "UX §11", "UX §12", "Core §17.3"],
-      "scope": "Implement the owner-approved WebAuthn or platform local-authorization policy as a gate on sensitive key operations without treating device authentication as Passport evidence. Bind challenges to one local operation, enforce fresh user verification where required, handle cancellation and unsupported platforms, redact authenticator output, and prevent UI navigation from completing the operation without a successful capability result. Provide a test adapter only in test builds."
+      "scope": "Implement the owner-approved WebAuthn or platform local-authorization policy as a gate on sensitive key operations without treating device authentication as Passport evidence. Bind each challenge to one exact operation and state hash for at most 300 seconds, consume it once, and invalidate it on cancellation, completion, replay, page reload/navigation, or material state change. Enforce fresh user verification where required, handle cancellation and unsupported platforms, redact authenticator output, and prevent UI navigation from completing the operation without a successful capability result. Provide a test adapter only in test builds."
     },
     {
       "id": "implement-holder-onboarding",
@@ -174,7 +174,7 @@
       "files": ["app/src/routes/request/request-ingress.tsx", "app/src/routes/request/request-validation.tsx", "app/src/services/ingress.ts", "app/src/services/request-service.ts", "app/src/services/request-ingress-service.ts", "app/src/storage/replay-store.ts", "test/pwa/request-ingress.test.tsx", "test/pwa/live-request-acceptance.test.ts"],
       "depends_on": ["implement-local-authentication", "implement-production-resource-registry", "implement-resolver-and-head-adapters", "implement-identity-and-policy-configuration"],
       "covers": ["Core §10", "Core §11", "Core §11.1–§11.3", "UX §9", "UX §13"],
-      "scope": "Accept bounded paste, file, or explicit deep-link request bytes without placing signed payloads in URLs; strictly verify structure, domain-separated signature, verifier method authorization, clock bounds, expiry, resource pins, identity evidence, disclosure modes, purposes, and replay. Persist accepted request/nonce tuples through expiry plus skew before consent. Invalid and unknown evidence never reaches authorization, and display hints remain untrusted text even when correctly signed."
+      "scope": "Accept Disclosure Request bytes only through bounded paste or explicit local file selection. Expose no live verifier request endpoint, deep-link ingress, inbox, polling receiver, background receiver, or signed payload in a URL. Strictly verify structure, domain-separated signature, verifier method authorization, clock bounds, expiry, resource pins, identity evidence, disclosure modes, purposes, and replay. Persist accepted request/nonce tuples through expiry plus skew before consent. Invalid and unknown evidence never reaches authorization, and display hints remain untrusted text even when correctly signed."
     },
     {
       "id": "implement-dynamic-consent-review",
@@ -182,7 +182,7 @@
       "files": ["app/src/routes/request/consent-review.tsx", "app/src/routes/request/complete-public-preview.tsx", "app/src/routes/request/final-authorization.tsx", "app/src/services/consent-view-model.ts", "app/src/services/authorization-service.ts", "app/src/components/forms/confirmation-dialog.tsx", "test/pwa/consent-review.test.tsx", "test/pwa/dynamic-consent-review.test.tsx"],
       "depends_on": ["implement-credential-evidence-surfaces", "implement-live-request-acceptance"],
       "covers": ["Core §11.3", "Core §12", "UX §9", "UX §9.1–§9.4"],
-      "scope": "Build consent from the verified request and actual eligible portfolio records. Show verifier hint versus verified identity, per-item and per-field purpose, required and optional choices, provenance, evidence state, complete-public disclosure consequences, correlation, expiry, and destination. Decline remains first-class. Final authorization binds exactly one response to the request, nonce, verifier authority, selected items, expiry, and local-auth result and is persisted atomically without implying signature or delivery."
+      "scope": "Build consent from the verified request and actual eligible portfolio records. Show verifier hint versus verified identity, per-item and per-field purpose, required and optional choices, provenance, evidence state, complete-public disclosure consequences, correlation, expiry, and destination. Render attacker-controlled purpose/display text inertly inside a fixed application-owned frame that cannot resemble browser, OS, or Passport system chrome; keep the identity-unknown warning visibly associated throughout review and repeat it at final authorization. Decline remains first-class. Final authorization binds exactly one response to the request, nonce, verifier authority, selected items, expiry, and local-auth result and is persisted atomically without implying signature or delivery."
     },
     {
       "id": "implement-signed-presentations",
@@ -235,10 +235,10 @@
     {
       "id": "harden-pwa-lifecycle",
       "kind": "code",
-      "files": ["app/src/components/pwa/install-prompt.tsx", "app/src/components/pwa/update-prompt.tsx", "app/src/routes/settings/app-storage.tsx", "app/src/pwa/register.ts", "app/src/pwa/service-worker.ts", "app/src/pwa/cache-policy.ts", "app/src/pwa/manifest.ts", "scripts/build-service-worker.mjs", "test/pwa/install-update.test.tsx", "test/pwa/service-worker.test.mjs"],
+      "files": ["app/src/app.tsx", "app/src/components/pwa/install-prompt.tsx", "app/src/components/pwa/update-prompt.tsx", "app/src/components/pwa/update-coordinator.tsx", "app/src/routes/settings/app-storage.tsx", "app/src/security/sensitive-operation-gate.ts", "app/src/pwa/register.ts", "app/src/pwa/service-worker.ts", "app/src/pwa/cache-policy.ts", "app/src/pwa/manifest.ts", "scripts/build-service-worker.mjs", "test/pwa/install-update.test.tsx", "test/pwa/update-coordinator.test.tsx", "test/pwa/sensitive-operation-gate.test.ts", "test/pwa/service-worker.test.mjs", "test/browser/service-worker-update.spec.ts"],
       "depends_on": ["implement-origin-isolation", "harden-indexeddb-state", "implement-signed-presentations", "implement-protected-backup-and-restore"],
       "covers": ["UX Appendix A", "UX §16.3", "Core §14.3", "PWA Release Gate Level 2"],
-      "scope": "Limit service-worker caching to the reviewed shell and immutable pinned resources; keep resolver, status, import, submission, and mutable protocol traffic network-only. Coordinate waiting-worker activation across tabs and defer reload during migration, backup, restore, consent, signing, or delivery. Implement real storage-persistence status and request behavior, eviction guidance, broken-worker recovery, offline unknown states, cache cleanup, and exact custom-origin scope without caching decrypted claims, keys, POST bodies, or opaque responses."
+      "scope": "Close `RHP-BUILD-05`. Limit service-worker caching to the reviewed shell and immutable pinned resources; keep resolver, status, import, submission, notice, and mutable protocol traffic network-only. Surface a waiting reviewed worker in connected active tabs, coordinate activation across tabs without holder data in messages, block new sensitive operations after an emergency replacement is known, and let active migration, backup, restore, consent, signing, or delivery cancel safely or reach a defined boundary. Provide one common fail-closed gate before authority creation, signing, rotation, destructive deletion, or later approved backup/device actions that checks capability-evidence `notAfter` and current-artifact state, activates a reviewed waiting worker, waits for `controllerchange`, and only then permits the operation. Prove convergence within 15 minutes after an emergency replacement becomes publicly available for visible, active, network-connected clients; make no finite claim for offline, closed, suspended, or isolated clients; and require the same gate after reconnect. Implement real storage-persistence status and request behavior, eviction guidance, broken-worker recovery, offline unknown states, cache cleanup, and exact custom-origin scope without caching decrypted claims, keys, POST bodies, or opaque responses."
     },
     {
       "id": "harden-production-security-boundaries",
@@ -262,7 +262,7 @@
       "files": ["playwright.config.ts", "test/browser/fixtures.ts", "test/browser/pages.ts", "test/browser/rhp-onboarding.spec.ts", "test/browser/rhp-acquisition.spec.ts", "test/browser/rhp-consent-presentation.spec.ts", "test/browser/rhp-backup-device.spec.ts", "test/browser/rhp-storage-update.spec.ts", "test/browser/rhp-accessibility-security.spec.ts"],
       "depends_on": ["record-rhp-browser-capability-matrix", "implement-holder-onboarding", "implement-real-credential-acquisition", "implement-credential-evidence-surfaces", "implement-live-request-acceptance", "implement-dynamic-consent-review", "implement-signed-presentations", "implement-presentation-delivery-and-receipts", "implement-protected-backup-and-restore", "implement-device-lifecycle", "implement-real-self-assertions", "implement-local-privacy-history", "harden-pwa-lifecycle", "harden-production-security-boundaries"],
       "covers": ["UX §17", "UX Appendix A", "Core §18", "PWA Release Gate Level 2"],
-      "scope": "Run deterministic preview-mode acceptance across every owner-approved browser engine and mobile/desktop profile using generated non-authoritative test authorities. Cover first-run and reload, capability refusal, real storage composition, valid/invalid/unknown/stale/tampered/replayed imports and requests, consent decline/cancel, exact signing retry, delivery failure, backup/restore, rotation, add/remove, multi-tab conflict, migration, eviction, offline/update, keyboard, zoom, assistive semantics, hostile text, and zero third-party runtime requests. Physical-device evidence remains an owner gate."
+      "scope": "Run deterministic preview-mode acceptance across every owner-approved browser engine and mobile/desktop profile using generated non-authoritative test authorities. Cover first-run and reload, capability refusal and `notAfter` expiry, real storage composition, valid/invalid/unknown/stale/tampered/replayed imports and requests, deceptive system-message copy inside the fixed unknown-identity frame, 300-second single-use local authorization, consent decline/cancel, exact signing retry, delivery failure, backup/restore, rotation, add/remove, multi-tab conflict, migration, eviction, waiting-worker sensitive-operation blocking, `controllerchange`, 15-minute visible/active/network-connected convergence, offline/reconnect update-before-operation, keyboard, zoom, assistive semantics, hostile text, and zero third-party runtime requests. Physical-device evidence remains an owner gate, and Codex will request it only after the implementation passes automated readiness checks."
     },
     {
       "id": "implement-rhp-ci",
@@ -291,10 +291,10 @@
     {
       "id": "record-rhp-pilot-runbook",
       "kind": "narrative",
-      "files": ["docs/rhp/pilot-runbook.md", "SECURITY.md", "PRIVACY.md", "SUPPORT.md"],
+      "files": ["docs/rhp/pilot-runbook.md", "docs/rhp/manual-expiry-and-emergency-control.md", "SECURITY.md", "PRIVACY.md", "SUPPORT.md"],
       "depends_on": ["record-rhp-owner-blockers", "generate-rhp-release-evidence"],
       "covers": ["Core §17", "Core §18", "UX §16.2", "UX §17", "BVP §16"],
-      "scope": "Record owner-approved participant eligibility, onboarding, support, privacy, retention, vulnerability disclosure, incident classification, issuer/verifier escalation, authority compromise, resolver outage, deployment rollback, emergency shutdown, participant notification, data deletion, and pilot termination procedures. Drafts remain marked unapproved until the named organizational owners and counsel or reviewers provide the required evidence; no service level or legal promise is invented."
+      "scope": "Record owner-approved participant eligibility, onboarding, support, privacy, retention, vulnerability disclosure, incident classification, issuer/verifier escalation, authority compromise, resolver outage, deployment rollback, emergency shutdown, participant notification, data deletion, and pilot termination procedures. Distinguish the notice-publication target from connected-client convergence, name and rehearse a backup operator with separate credentials and signing identity, and record the absence of any finite offline-client guarantee. Drafts remain marked unapproved until the named organizational owners and counsel or reviewers provide the required evidence; no service level or legal promise is invented."
     },
     {
       "id": "record-rhp-exit-review",
