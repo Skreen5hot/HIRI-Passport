@@ -37,7 +37,7 @@ Use `git log --date=iso-strict` to inspect the complete history and signatures.
 - License: MIT
 - Default branch: `main`
 - Public demo: https://hiri-protocol.org/
-- Submission tag: `openai-build-week-2026-submission-v1`
+- Submission tag: `openai-build-week-2026-submission-v2`
 
 Pre-packaging implementation evidence on commit `662e97fd96164760cff873d8987eae29d6503169`:
 

@@ -9,7 +9,7 @@
 | Public demo | https://hiri-protocol.org/ |
 | Source repository | https://github.com/Skreen5hot/HIRI-Passport |
 | License | MIT |
-| Submission version | `openai-build-week-2026-submission-v1` |
+| Submission version | `openai-build-week-2026-submission-v2` |
 | Primary Codex session | `019f7ee9-bd51-7ab0-97db-60f1993f21f0` |
 | Recorded session model | `gpt-5.6-sol` |
 
@@ -53,7 +53,7 @@ Official rules: https://openai.devpost.com/rules
 
 ## Submission freeze
 
-The signed tag `openai-build-week-2026-submission-v1` identifies the source shown to judges. The public Synthetic Demo should remain materially consistent with the video and description through the judging period ending August 5, 2026 at 5:00 PM Pacific Time.
+The signed tag `openai-build-week-2026-submission-v2` identifies the source shown to judges. The public Synthetic Demo should remain materially consistent with the video and description through the judging period ending August 5, 2026 at 5:00 PM Pacific Time.
 
 Post-submission Real Holder Preview work may continue on a separate branch. It should not replace the submitted public demo or change the submitted Devpost materials during judging. The planned origin separation remains documented in [demo-origin-migration-plan.js](../../demo-origin-migration-plan.js) for execution after the submission freeze.
 

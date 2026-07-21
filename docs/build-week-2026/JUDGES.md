@@ -58,7 +58,7 @@ The browser suite serves the compiled artifact at a loopback origin. GitHub Acti
 
 ## Submitted version and scope
 
-- Source tag: `openai-build-week-2026-submission-v1`
+- Source tag: `openai-build-week-2026-submission-v2`
 - License: MIT
 - Submitted runtime: `synthetic-demo`
 - Sample data: checked-in synthetic fixtures under `app/src/demo/`

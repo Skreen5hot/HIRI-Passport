@@ -48,4 +48,4 @@ The canonical signed RHP decision records remain at the repository root because 
 - [Known limitations](build-week-2026/KNOWN-LIMITATIONS.md)
 - [Codex acceleration record](build-week-2026/CodexAcceleration.md)
 
-The signed submission source remains available at tag `openai-build-week-2026-submission-v1`. Post-submission work must not rewrite that tag.
+The signed submission source remains available at tag `openai-build-week-2026-submission-v2`. Post-submission work must not rewrite that tag.
