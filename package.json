@@ -8,6 +8,7 @@
   },
   "scripts": {
     "generate:icons": "node scripts/generate-icons.mjs",
+    "check:docs": "node scripts/check-markdown-links.mjs",
     "prebuild": "npm run generate:icons",
     "dev": "vite --mode synthetic-demo",
     "build": "vite build --mode synthetic-demo && node scripts/build-service-worker.mjs && node scripts/check-pages-artifact.mjs dist",
@@ -29,7 +30,7 @@
     "rhp:resources:review-record": "node scripts/create-rhp-independent-review-record.mjs",
     "rhp:resources:review-record:verify": "node scripts/verify-rhp-independent-review-record.mjs",
     "rhp:resources:self-test": "node scripts/self-test-rhp-resource-review-kit.mjs",
-    "check": "npm run rhp:resources:preflight && npm run test && npm run typecheck && npm run conformance && npm run build && npm run audit:bundle"
+    "check": "npm run check:docs && npm run rhp:resources:preflight && npm run test && npm run typecheck && npm run conformance && npm run build && npm run audit:bundle"
   },
   "engines": {
     "node": ">=22"

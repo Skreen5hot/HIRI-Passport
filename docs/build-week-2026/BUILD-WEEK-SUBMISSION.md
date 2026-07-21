@@ -36,16 +36,16 @@ The repository was created during the submission period. Work completed or meani
 - GitHub Actions CI and GitHub Pages deployment;
 - exact-hash decision and resource-review evidence tooling.
 
-The dated commit history and [evidence record](docs/build-week-2026/EVIDENCE.md) distinguish this work from the earlier project concept and design inputs.
+The dated commit history and [evidence record](EVIDENCE.md) distinguish this work from the earlier project concept and design inputs.
 
 ## Submission requirements evidence
 
 - **Working project:** the public demo requires no account or test credential and loads from the URL above.
 - **Category:** Apps for Your Life is recommended because the demonstrated product is a holder-facing consumer application.
-- **Description:** [DEVPOST-DESCRIPTION.md](docs/build-week-2026/DEVPOST-DESCRIPTION.md) is ready to paste into the submission form.
-- **Demo video:** [VIDEO-SCRIPT.md](docs/build-week-2026/VIDEO-SCRIPT.md) provides a timed script under three minutes; the owner must record, upload publicly to YouTube, and supply the final link.
+- **Description:** [DEVPOST-DESCRIPTION.md](DEVPOST-DESCRIPTION.md) is ready to paste into the submission form.
+- **Demo video:** [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md) provides a timed script under three minutes; the owner must record, upload publicly to YouTube, and supply the final link.
 - **Repository:** the repository is public and MIT licensed.
-- **README:** [README.md](README.md) contains demo access, setup, sample data, testing, architecture, limitations, and Codex collaboration links.
+- **README:** [README.md](../../README.md) contains demo access, setup, sample data, testing, architecture, limitations, and Codex collaboration links.
 - **Codex use:** [CodexAcceleration.md](CodexAcceleration.md) records acceleration, owner decisions, GPT-5.6 use, and the human/automation boundary.
 - **Session ID:** `019f7ee9-bd51-7ab0-97db-60f1993f21f0`.
 
@@ -55,7 +55,7 @@ Official rules: https://openai.devpost.com/rules
 
 The signed tag `openai-build-week-2026-submission-v1` identifies the source shown to judges. The public Synthetic Demo should remain materially consistent with the video and description through the judging period ending August 5, 2026 at 5:00 PM Pacific Time.
 
-Post-submission Real Holder Preview work may continue on a separate branch. It should not replace the submitted public demo or change the submitted Devpost materials during judging. The planned origin separation remains documented in [demo-origin-migration-plan.js](demo-origin-migration-plan.js) for execution after the submission freeze.
+Post-submission Real Holder Preview work may continue on a separate branch. It should not replace the submitted public demo or change the submitted Devpost materials during judging. The planned origin separation remains documented in [demo-origin-migration-plan.js](../../demo-origin-migration-plan.js) for execution after the submission freeze.
 
 ## Remaining owner actions
 

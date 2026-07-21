@@ -11,7 +11,7 @@
     {
       "id": "record-rhp-owner-blockers",
       "kind": "narrative",
-      "files": ["real-holder-preview-owner-blockers.md"],
+      "files": ["docs/rhp/real-holder-preview-owner-blockers.md"],
       "depends_on": ["record-rhp-release-contract"],
       "covers": ["PWA Release Gate Level 2", "Core §18", "Core §19", "UX §18", "BVP §17"],
       "scope": "Maintain the authoritative register of decisions, external relationships, credentials, governance evidence, independent reviews, and risk acceptances that only the project owner can supply. Require a named resource reviewer independent of the byte author plus primary and backup release/incident operators using separate accounts, signing identities, and private keys. Every item has a stable OWNER-RHP identifier, safe default, acceptable evidence, and dependent plan units. The register never contains secrets, never treats technical success as owner approval, and never permits an unresolved value to be invented or bypassed."

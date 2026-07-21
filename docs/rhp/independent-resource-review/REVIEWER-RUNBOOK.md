@@ -114,7 +114,7 @@ Read, in this order:
 3. `docs/rhp/release-contract.md`;
 4. `docs/rhp/resource-governance.md`, sections 4-7 and 11;
 5. `docs/rhp/trust-configuration-policy.md`;
-6. `HIRI-Digital-Passport-Extension-v2_0_0-DRAFT.md`, cited sections in the traceability file;
+6. `docs/specifications/current/HIRI-Digital-Passport-Extension-v2_0_0-DRAFT.md`, cited sections in the traceability file;
 7. `REQUIREMENT-TRACEABILITY.md`;
 8. every entry named by `resources/preview/rhp-2026-07/resource-set.json`;
 9. `resources/preview/rhp-2026-07/vectors/project-vectors-v1.json`;

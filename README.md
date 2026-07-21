@@ -80,6 +80,7 @@ The repository is intentionally specification-driven:
 
 - `src/core/` contains deterministic protocol and validation functions with explicit injected ports.
 - `app/src/` contains the React PWA, local state, storage, adapters, services, and runtime compositions.
+- [`docs/`](docs/README.md) contains the canonical documentation map, specifications, architecture, governance, security, and release material.
 - `test/core/`, `test/pwa/`, and `test/browser/` cover deterministic logic, browser-backed application behavior, accessibility, privacy, origin controls, and deployment behavior.
 - `resources/preview/` contains an **unsigned review candidate**, not approved production resources.
 - `plan.js`, `pwa-plan.js`, and `real-holder-preview-plan.js` are dependency-ordered implementation contracts derived from the specifications.
@@ -92,8 +93,8 @@ The HIRI concept and design work began before Build Week. The implementation rep
 
 Submission materials:
 
-- [Build Week submission record](BUILD-WEEK-SUBMISSION.md)
-- [How GPT-5.6 and Codex accelerated the work](CodexAcceleration.md)
+- [Build Week submission record](docs/build-week-2026/BUILD-WEEK-SUBMISSION.md)
+- [How GPT-5.6 and Codex accelerated the work](docs/build-week-2026/CodexAcceleration.md)
 - [Judge testing guide](docs/build-week-2026/JUDGES.md)
 - [Paste-ready Devpost description](docs/build-week-2026/DEVPOST-DESCRIPTION.md)
 - [Demo video script](docs/build-week-2026/VIDEO-SCRIPT.md)
@@ -107,16 +108,16 @@ Submission materials:
 
 The compatibility-corrected specifications remain Working Drafts and are not conformance targets:
 
-- [Compatibility and Normative Decisions](HIRI-Passport-v2_0_0-Compatibility-and-Normative-Decisions.md)
-- [Digital Passport Extension v2.0.0 Draft](HIRI-Digital-Passport-Extension-v2_0_0-DRAFT.md)
-- [UX Architecture v2.0.0 Draft](HIRI-Passport-UX-Architecture-Spec-v2_0_0-DRAFT.md)
-- [Bootstrap Verification Profile v3.0.0 Draft](HIRI-Bootstrap-Verification-Profile-v3_0_0-DRAFT.md)
+- [Compatibility and Normative Decisions](docs/specifications/current/HIRI-Passport-v2_0_0-Compatibility-and-Normative-Decisions.md)
+- [Digital Passport Extension v2.0.0 Draft](docs/specifications/current/HIRI-Digital-Passport-Extension-v2_0_0-DRAFT.md)
+- [UX Architecture v2.0.0 Draft](docs/specifications/current/HIRI-Passport-UX-Architecture-Spec-v2_0_0-DRAFT.md)
+- [Bootstrap Verification Profile v3.0.0 Draft](docs/specifications/current/HIRI-Bootstrap-Verification-Profile-v3_0_0-DRAFT.md)
 
-Historical design inputs are preserved for traceability and are not current development contracts.
+Historical design inputs are preserved in the [specification archive](docs/specifications/README.md#historical-design-inputs) for traceability and are not current development contracts.
 
 ## Security and privacy boundary
 
-Do not enter real personal information, credentials, private keys, authentication secrets, or production requests into the Synthetic Demo. The public build is for demonstration and evaluation only. See [KNOWN-LIMITATIONS.md](docs/build-week-2026/KNOWN-LIMITATIONS.md) and the [Real Holder Preview owner-blocker register](real-holder-preview-owner-blockers.md) for the gates that remain open.
+Do not enter real personal information, credentials, private keys, authentication secrets, or production requests into the Synthetic Demo. The public build is for demonstration and evaluation only. See [KNOWN-LIMITATIONS.md](docs/build-week-2026/KNOWN-LIMITATIONS.md) and the [Real Holder Preview owner-blocker register](docs/rhp/real-holder-preview-owner-blockers.md) for the gates that remain open.
 
 ## License
 

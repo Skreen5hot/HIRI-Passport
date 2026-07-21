@@ -3,7 +3,7 @@ import path from "node:path";
 import { CORE_ERROR_REGISTRY } from "../src/core/errors.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
-const specification = fs.readFileSync(path.join(root, "HIRI-Digital-Passport-Extension-v2_0_0-DRAFT.md"), "utf8");
+const specification = fs.readFileSync(path.join(root, "docs/specifications/current/HIRI-Digital-Passport-Extension-v2_0_0-DRAFT.md"), "utf8");
 const requirementIds = [...new Set([...specification.matchAll(/\[(REQ-[A-Z0-9-]+)\]/gu)].map((match) => match[1]))].sort();
 const tests = fs.readdirSync(path.join(root, "test", "core")).filter((name) => name.endsWith(".test.mjs")).sort();
 const blockers = ["OPEN-SD-01", "OPEN-HEAD-01", "OPEN-CONTEXT-01", "OPEN-RECOVERY-01", "OPEN-TRANSPORT-01"];

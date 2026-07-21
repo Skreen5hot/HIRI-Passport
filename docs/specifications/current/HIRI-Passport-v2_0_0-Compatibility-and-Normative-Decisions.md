@@ -18,15 +18,15 @@ Revision 1.2.0 records completion of the compatibility-corrected UX v2.0.0 and B
 
 The following existing documents are design inputs, not implementation contracts:
 
-- `HIRI-Digital-Passport-Extension-v1_9_0.md`
-- `HIRI-Passport-UX-Architecture-Spec-v1_5_0.md`
-- `HIRI-Bootstrap-Verification-Profile-v2_0_0.md`
+- [HIRI Digital Passport Extension v1.9.0](../historical/HIRI-Digital-Passport-Extension-v1_9_0.md)
+- [HIRI Passport UX Architecture v1.5.0](../historical/HIRI-Passport-UX-Architecture-Spec-v1_5_0.md)
+- [HIRI Bootstrap Verification Profile v2.0.0](../historical/HIRI-Bootstrap-Verification-Profile-v2_0_0.md)
 
 The active companion Working Drafts governed by this baseline are:
 
-- `HIRI-Digital-Passport-Extension-v2_0_0-DRAFT.md`
-- `HIRI-Passport-UX-Architecture-Spec-v2_0_0-DRAFT.md`
-- `HIRI-Bootstrap-Verification-Profile-v3_0_0-DRAFT.md`
+- [HIRI Digital Passport Extension v2.0.0 Draft](HIRI-Digital-Passport-Extension-v2_0_0-DRAFT.md)
+- [HIRI Passport UX Architecture v2.0.0 Draft](HIRI-Passport-UX-Architecture-Spec-v2_0_0-DRAFT.md)
+- [HIRI Bootstrap Verification Profile v3.0.0 Draft](HIRI-Bootstrap-Verification-Profile-v3_0_0-DRAFT.md)
 
 The v1.9.0 Passport specification remains unchanged as a historical design draft. Requirements from that document do not carry into v2.0.0 unless this document accepts them or the v2.0.0 specification restates them.
 

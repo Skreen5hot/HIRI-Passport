@@ -6,9 +6,9 @@
 **Date:** July 2026  
 **Status:** Working Draft — not a conformance target  
 **Supersedes:** No published specification  
-**Design input:** `HIRI-Digital-Passport-Extension-v1_9_0.md`  
-**Design control:** `HIRI-Passport-v2_0_0-Compatibility-and-Normative-Decisions.md`  
-**Companion drafts:** `HIRI-Passport-UX-Architecture-Spec-v2_0_0-DRAFT.md`; `HIRI-Bootstrap-Verification-Profile-v3_0_0-DRAFT.md`
+**Design input:** [HIRI Digital Passport Extension v1.9.0](../historical/HIRI-Digital-Passport-Extension-v1_9_0.md)<br>
+**Design control:** [Compatibility and Normative Decisions](HIRI-Passport-v2_0_0-Compatibility-and-Normative-Decisions.md)<br>
+**Companion drafts:** [UX Architecture v2.0.0 Draft](HIRI-Passport-UX-Architecture-Spec-v2_0_0-DRAFT.md); [Bootstrap Verification Profile v3.0.0 Draft](HIRI-Bootstrap-Verification-Profile-v3_0_0-DRAFT.md)
 
 ---
 
