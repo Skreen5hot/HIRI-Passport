@@ -1,0 +1,32 @@
+{
+  "schema": "hiri:rhp-approval-evidence:v1",
+  "recordId": "RHP-DR-002",
+  "revision": "Final 1",
+  "canonicalPath": "RHP-DR-002-Technical-Policy-Decision-Record-FINAL.md",
+  "decisionCommit": "03b24529f999165c2b2ea23520c43ad6e00f9e6f",
+  "fileSha256": "sha256:17e4f3d7ee47b823020a7595d72422f1f99376a03d848a7d6b917d92be25a36f",
+  "approver": {
+    "name": "Aaron A Damiano",
+    "role": "Project Owner"
+  },
+  "approvedOptions": {
+    "D1": "A",
+    "D2": "A",
+    "D3": "A",
+    "D4": "A",
+    "D5": "A"
+  },
+  "approvalDate": "2026-07-20",
+  "reviewDate": "2026-10-20",
+  "signatureMechanism": "gpg-signed-git-tag",
+  "signerIdentity": "2B7BA5C378749418B1D051D9C01347EA45970647",
+  "parentDecision": {
+    "recordId": "RHP-DR-001",
+    "signedTag": "RHP-DR-001-approved-2026-07-20"
+  },
+  "approvedConnectedClientTarget": {
+    "seconds": 900,
+    "scope": "visible, active, network-connected clients after emergency replacement public availability",
+    "excluded": "offline, closed, suspended, or isolated clients; update required before a sensitive operation after reconnect"
+  }
+}
