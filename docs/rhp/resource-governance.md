@@ -177,3 +177,9 @@ The first resource decision must include at minimum:
 The approval package must identify the independent reviewer. If no qualified independent reviewer is available, `OWNER-RHP-03` remains open and resource-dependent real workflows remain disabled.
 
 Until that package exists, resource-dependent real-data workflows remain disabled.
+
+## 12. Independent review implementation kit
+
+The source kit is located at `docs/rhp/independent-resource-review/README.md`. It contains exact source bytes, a deterministic source-commit-to-manifest generator, an independently implemented candidate verifier, project vectors, requirement traceability, reviewer qualification rules, semantic-assessment templates, machine-checked review evidence, and owner handoff instructions.
+
+The kit does not itself approve resources. The responsible author must first commit the complete source kit, generate the manifest from that exact commit, and commit the generated candidate. A qualified non-author must then verify and semantically review the exact candidate commit and separately communicated manifest hash. `OWNER-RHP-03` closes only after the owner verifies that evidence and signs an approval binding those exact values.

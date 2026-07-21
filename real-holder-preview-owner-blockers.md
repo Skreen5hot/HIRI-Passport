@@ -28,7 +28,7 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655
 |---|---|---|---|
 | `OWNER-RHP-01` | Release identity, audience, and permitted claims | Production-mode implementation | CLOSED — signed evidence verified |
 | `OWNER-RHP-02` | Dedicated verified origin and DNS control | Real-data deployment | EVIDENCED — implementation controls pending |
-| `OWNER-RHP-03` | Normative resource publication authority | Resource-dependent real processing | DECIDED — D1-A governance; reviewer and exact manifest approval pending |
+| `OWNER-RHP-03` | Normative resource publication authority | Resource-dependent real processing | CANDIDATE KIT PREPARED — source commit, named reviewer, exact review, and signed manifest approval pending |
 | `OWNER-RHP-04` | Trusted issuers, identity anchors, and authoritative resolvers | Real request/credential trust decisions | DECIDED — D2-A empty trust/warned consent; implementation and evidence pending |
 | `OWNER-RHP-05` | Pilot issuer and verifier relationships | External partner pilot | OUT-OF-SCOPE — no partner pilot authorized |
 | `OWNER-RHP-06` | Supported-browser and device policy | Real authority creation/release candidate | DECIDED — D3-A evidence strategy; no platform approved pending physical evidence |
@@ -85,11 +85,11 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655
 
 ### OWNER-RHP-03 — Normative resource publication authority
 
-**Prepared build artifact:** `docs/rhp/resource-governance.md` defines an empty fail-closed registry and the exact manifest/review/signing process. It does not close this owner gate or make preview bytes normative.
+**Prepared build artifacts:** `docs/rhp/resource-governance.md` defines the empty fail-closed registry and approval process. `docs/rhp/independent-resource-review/README.md` now provides 11 exact source resources, project vectors, traceability, deterministic candidate generation, independent verification, reviewer evidence, and owner handoff. These artifacts do not close this owner gate or make preview bytes normative.
 
 **Authenticated owner decision:** RHP-DR-002 D1-A approves the project-preview governance model after independent technical review. It does not approve any resource bytes.
 
-**Current owner input:** The owner will identify a trusted technical person. No reviewer is designated yet; D1-A records the target governance but does not approve a resource manifest or close this gate.
+**Current owner input:** The owner will identify a trusted technical person. No reviewer is designated and no generated candidate manifest is approved yet; D1-A records the target governance but does not approve the drafted resource bytes or close this gate.
 
 **Why Codex cannot close it:** Codex can draft contexts, schemas, profiles, hashes, and vectors, but cannot unilaterally make a Working Draft normative or designate itself as the publishing authority. Final bytes and identifiers require project or upstream standards governance.
 

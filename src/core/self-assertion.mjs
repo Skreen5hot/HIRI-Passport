@@ -1,4 +1,6 @@
-import { encodeBase64Url, parseAbsoluteUri, parseEd25519Authority, parseRandomId, parseSha256Identifier } from "./scalars.mjs";
+import { assertClosedObject, encodeBase64Url, parseAbsoluteUri, parseEd25519Authority, parseRandomId, parseSha256Identifier } from "./scalars.mjs";
+
+const EPHEMERAL_MEMBERS = ["presentationItemId", "requestItemId", "provenance", "schema", "schemaHash", "claims"];
 
 export async function createPersistentSelfAssertion({ holderAuthority, content, publicPublicationAuthorized = false }, ports) {
   parseEd25519Authority(holderAuthority);
@@ -17,8 +19,22 @@ export function validatePersistentSelfAssertion(assertion, holderAuthority) {
 }
 
 export function validateEphemeralSelfAssertion(assertion, requestItem, presentation) {
-  if (!assertion || assertion.provenance !== "self-asserted-ephemeral" || assertion.requestItemId !== requestItem?.requestItemId) return { result: "invalid", error: "PROVENANCE_MISMATCH" };
-  if (assertion.schema !== requestItem.schema || assertion.schemaHash !== requestItem.schemaHash) return { result: "invalid", error: "CREDENTIAL_SCHEMA_INVALID" };
-  if (presentation?.proof == null) return { result: "invalid", error: "SIGNATURE_INVALID" };
-  return { result: "valid", provenance: "self-asserted-ephemeral" };
+  try {
+    assertClosedObject(assertion, EPHEMERAL_MEMBERS, EPHEMERAL_MEMBERS, "ephemeral self assertion");
+    parseRandomId(assertion.presentationItemId);
+    parseRandomId(assertion.requestItemId);
+    parseAbsoluteUri(assertion.schema);
+    parseSha256Identifier(assertion.schemaHash);
+    if (!assertion.claims || typeof assertion.claims !== "object" || Array.isArray(assertion.claims)) throw new TypeError("claims must be an object");
+    if (assertion.provenance !== "self-asserted-ephemeral" || assertion.requestItemId !== requestItem?.requestItemId) {
+      return { result: "invalid", error: "PROVENANCE_MISMATCH" };
+    }
+    if (assertion.schema !== requestItem.schema || assertion.schemaHash !== requestItem.schemaHash) {
+      return { result: "invalid", error: "CREDENTIAL_SCHEMA_INVALID" };
+    }
+    if (presentation?.proof == null) return { result: "invalid", error: "SIGNATURE_INVALID" };
+    return { result: "valid", provenance: "self-asserted-ephemeral" };
+  } catch {
+    return { result: "invalid", error: "CREDENTIAL_SCHEMA_INVALID" };
+  }
 }

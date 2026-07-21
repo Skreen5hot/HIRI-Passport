@@ -9,9 +9,10 @@
   "scripts": {
     "generate:icons": "node scripts/generate-icons.mjs",
     "prebuild": "npm run generate:icons",
-    "dev": "vite",
-    "build": "vite build && node scripts/build-service-worker.mjs && node scripts/check-pages-artifact.mjs dist",
-    "preview": "vite preview",
+    "dev": "vite --mode synthetic-demo",
+    "build": "vite build --mode synthetic-demo && node scripts/build-service-worker.mjs && node scripts/check-pages-artifact.mjs dist",
+    "build:rhp-boundary": "vite build --mode real-holder-preview",
+    "preview": "vite preview --mode synthetic-demo",
     "typecheck": "tsc --noEmit",
     "test:kernel": "node scripts/run-kernel-tests.mjs",
     "test:pwa": "vitest run",
@@ -21,7 +22,14 @@
     "audit:bundle": "node scripts/audit-bundle.mjs dist",
     "rhp:approval:create": "node scripts/create-rhp-approval-evidence.mjs",
     "rhp:approval:verify": "node scripts/verify-rhp-approval-evidence.mjs",
-    "check": "npm run test && npm run typecheck && npm run conformance && npm run build && npm run audit:bundle"
+    "rhp:resources:canonicalize": "node scripts/canonicalize-rhp-resource-sources.mjs",
+    "rhp:resources:preflight": "node scripts/preflight-rhp-resource-sources.mjs",
+    "rhp:resources:prepare": "node scripts/prepare-rhp-resource-candidate.mjs",
+    "rhp:resources:review": "node scripts/verify-rhp-resource-candidate.mjs",
+    "rhp:resources:review-record": "node scripts/create-rhp-independent-review-record.mjs",
+    "rhp:resources:review-record:verify": "node scripts/verify-rhp-independent-review-record.mjs",
+    "rhp:resources:self-test": "node scripts/self-test-rhp-resource-review-kit.mjs",
+    "check": "npm run rhp:resources:preflight && npm run test && npm run typecheck && npm run conformance && npm run build && npm run audit:bundle"
   },
   "engines": {
     "node": ">=22"
@@ -39,6 +47,7 @@
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.3",
+    "ajv": "8.20.0",
     "axe-core": "4.12.1",
     "fake-indexeddb": "6.2.5",
     "jsdom": "29.1.1",

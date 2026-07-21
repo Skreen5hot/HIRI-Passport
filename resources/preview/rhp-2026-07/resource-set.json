@@ -1,0 +1,109 @@
+{
+  "schema": "hiri:rhp-resource-source-set:v1",
+  "releaseId": "real-holder-preview",
+  "namespace": "https://hiri-protocol.org/resources/preview/rhp-2026-07/",
+  "manifestVersion": "rhp-2026-07-1",
+  "generationScriptVersion": "rhp-resource-kit-1",
+  "approvalRecord": "RHP-RESOURCE-APPROVAL-RHP-2026-07-1",
+  "resources": [
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/configuration/trust-baseline/v1",
+      "kind": "configuration",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/json",
+      "bytesPath": "resources/preview/rhp-2026-07/configuration/trust-baseline-v1.json",
+      "specification": "docs/rhp/trust-configuration-policy.md sections 4-12"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/contexts/passport/v2",
+      "kind": "context",
+      "version": "2",
+      "canonicalization": "JCS",
+      "mediaType": "application/json",
+      "bytesPath": "resources/preview/rhp-2026-07/contexts/passport-v2.context.json",
+      "specification": "Core v2.0.0 Working Draft sections 6.2 and 9; RHP resource governance section 11"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/profiles/release-profile/v1",
+      "kind": "profile",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/json",
+      "bytesPath": "resources/preview/rhp-2026-07/profiles/release-profile-v1.json",
+      "specification": "RHP-DR-001 D1-A through D6-A; RHP-DR-002 D1-A and D2-A"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/disclosure-request/v1",
+      "kind": "schema",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/schema+json",
+      "bytesPath": "resources/preview/rhp-2026-07/schemas/disclosure-request-v1.schema.json",
+      "specification": "Core v2.0.0 Working Draft sections 10 and 11; RHP-DR-001 D6-A"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/encrypted-portfolio/v1",
+      "kind": "schema",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/schema+json",
+      "bytesPath": "resources/preview/rhp-2026-07/schemas/encrypted-portfolio-v1.schema.json",
+      "specification": "Core v2.0.0 Working Draft sections 7.4-7.5; RHP-DR-001 D6-A"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/ephemeral-self-assertion/v1",
+      "kind": "schema",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/schema+json",
+      "bytesPath": "resources/preview/rhp-2026-07/schemas/ephemeral-self-assertion-v1.schema.json",
+      "specification": "Core v2.0.0 Working Draft sections 9.2 and 12.3; RHP-DR-001 D6-A"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/passport-presentation/v1",
+      "kind": "schema",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/schema+json",
+      "bytesPath": "resources/preview/rhp-2026-07/schemas/passport-presentation-v1.schema.json",
+      "specification": "Core v2.0.0 Working Draft sections 10 and 12; RHP-DR-001 D6-A"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/persistent-self-assertion/v1",
+      "kind": "schema",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/schema+json",
+      "bytesPath": "resources/preview/rhp-2026-07/schemas/persistent-self-assertion-v1.schema.json",
+      "specification": "Core v2.0.0 Working Draft section 9.1; RHP-DR-001 D6-A"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/presentation-package/v1",
+      "kind": "schema",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/schema+json",
+      "bytesPath": "resources/preview/rhp-2026-07/schemas/presentation-package-v1.schema.json",
+      "specification": "Core v2.0.0 Working Draft section 13; RHP-DR-001 D6-A"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/runtime-config/v1",
+      "kind": "schema",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/schema+json",
+      "bytesPath": "resources/preview/rhp-2026-07/schemas/runtime-config-v1.schema.json",
+      "specification": "real-holder-preview-plan implement-production-runtime-config; RHP-DR-002 D2-A"
+    },
+    {
+      "id": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/trust-config/v1",
+      "kind": "schema",
+      "version": "1",
+      "canonicalization": "JCS",
+      "mediaType": "application/schema+json",
+      "bytesPath": "resources/preview/rhp-2026-07/schemas/trust-config-v1.schema.json",
+      "specification": "docs/rhp/trust-configuration-policy.md sections 4-12; RHP-DR-002 D2-A"
+    }
+  ]
+}

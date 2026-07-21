@@ -24,7 +24,12 @@ test("timestamps, URIs, and claim pointers are strict", () => {
   assert.equal(parseUtcSeconds("2026-07-20T12:00:00Z"), Date.UTC(2026, 6, 20, 12));
   assert.throws(() => parseUtcSeconds("2026-02-30T00:00:00Z"), /calendar/);
   assert.equal(parseAbsoluteUri("https://example.test/schema"), "https://example.test/schema");
+  assert.equal(
+    parseAbsoluteUri("hiri://key:ed25519:z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw/data/self-assertion-EBESExQVFhcYGRobHB0eHw"),
+    "hiri://key:ed25519:z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw/data/self-assertion-EBESExQVFhcYGRobHB0eHw"
+  );
   assert.throws(() => parseAbsoluteUri("https://example.test/schema#x"), /fragment/);
+  assert.throws(() => parseAbsoluteUri("hiri://key:ed25519:zBad/data/value"), /exactly 32/);
   assert.equal(parseClaimPointer("/claims/licenseNumber"), "/claims/licenseNumber");
   assert.throws(() => parseClaimPointer("/claims/0"), /array/);
 });

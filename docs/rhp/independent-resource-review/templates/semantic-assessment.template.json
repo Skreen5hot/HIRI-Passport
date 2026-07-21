@@ -1,0 +1,53 @@
+{
+  "schema": "hiri:rhp-independent-semantic-assessment:v1",
+  "assessments": [
+    {
+      "id": "SEM-01-SCOPE",
+      "question": "Does the complete resource set enable only persistent and ephemeral holder self-assertions while keeping issuer, BVS, resolver, current-head, remote-resource, remote-delivery, identity-anchor, and relying-party-policy paths disabled?",
+      "conclusion": "ENTER acceptable OR blocking-finding",
+      "analysis": "ENTER A SPECIFIC ANALYSIS OF AT LEAST 40 CHARACTERS",
+      "evidence": ["ENTER FILE AND SECTION"],
+      "findingId": "ENTER BLOCKING FINDING ID ONLY WHEN CONCLUSION IS blocking-finding"
+    },
+    {
+      "id": "SEM-02-CONTEXT",
+      "question": "Are the context terms accurate for the enabled content while clearly preserving JCS and making no normative JSON-LD or URDNA2015 claim?",
+      "conclusion": "ENTER acceptable OR blocking-finding",
+      "analysis": "ENTER A SPECIFIC ANALYSIS OF AT LEAST 40 CHARACTERS",
+      "evidence": ["ENTER FILE AND SECTION"],
+      "findingId": "ENTER BLOCKING FINDING ID ONLY WHEN CONCLUSION IS blocking-finding"
+    },
+    {
+      "id": "SEM-03-CLAIMS",
+      "question": "Is the project-only closed label/value claim shape a correct, privacy-safe subset for both persistent and ephemeral self-assertions?",
+      "conclusion": "ENTER acceptable OR blocking-finding",
+      "analysis": "ENTER A SPECIFIC ANALYSIS OF AT LEAST 40 CHARACTERS",
+      "evidence": ["ENTER FILE AND SECTION"],
+      "findingId": "ENTER BLOCKING FINDING ID ONLY WHEN CONCLUSION IS blocking-finding"
+    },
+    {
+      "id": "SEM-04-PORTFOLIO",
+      "question": "Is the project-only persistentSelfAssertion portfolio record compatible with Core 7.4-7.5, private record IDs, unknown-record preservation, and local-metadata separation?",
+      "conclusion": "ENTER acceptable OR blocking-finding",
+      "analysis": "ENTER A SPECIFIC ANALYSIS OF AT LEAST 40 CHARACTERS",
+      "evidence": ["ENTER FILE AND SECTION"],
+      "findingId": "ENTER BLOCKING FINDING ID ONLY WHEN CONCLUSION IS blocking-finding"
+    },
+    {
+      "id": "SEM-05-PACKAGE",
+      "question": "Is delegating the package presentation and artifact values to separately pinned validators fail-closed and faithful to Core section 13?",
+      "conclusion": "ENTER acceptable OR blocking-finding",
+      "analysis": "ENTER A SPECIFIC ANALYSIS OF AT LEAST 40 CHARACTERS",
+      "evidence": ["ENTER FILE AND SECTION"],
+      "findingId": "ENTER BLOCKING FINDING ID ONLY WHEN CONCLUSION IS blocking-finding"
+    },
+    {
+      "id": "SEM-06-CONFIG-TRUST",
+      "question": "Do runtime, release-profile, and trust resources preserve all D2-A empty sets and keep cryptography, status, identity, BVS evidence, provenance, and policy separate?",
+      "conclusion": "ENTER acceptable OR blocking-finding",
+      "analysis": "ENTER A SPECIFIC ANALYSIS OF AT LEAST 40 CHARACTERS",
+      "evidence": ["ENTER FILE AND SECTION"],
+      "findingId": "ENTER BLOCKING FINDING ID ONLY WHEN CONCLUSION IS blocking-finding"
+    }
+  ]
+}

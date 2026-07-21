@@ -13,6 +13,12 @@ async function randomId(ports) {
 }
 function lookup(request) { return new Map([...request.credentialRequests, ...request.selfAssertionRequests].map((item) => [item.requestItemId, item])); }
 
+function containsRecordId(value) {
+  if (!value || typeof value !== "object") return false;
+  if (Array.isArray(value)) return value.some(containsRecordId);
+  return Object.hasOwn(value, "recordId") || Object.values(value).some(containsRecordId);
+}
+
 export async function createPresentation(authorization, input, ports) {
   if (authorization.consumedPresentation && authorization.consumedPresentation !== input.retransmit) throw new Error("authorization already consumed");
   const presentationId = await randomId(ports);
@@ -37,6 +43,7 @@ export function validatePresentation(presentation, request, _ports = {}, paramet
   if (presentation.requestBinding.requestId !== request.requestId || presentation.requestBinding.nonce !== request.nonce || presentation.requestBinding.verifierAuthority !== request.verifier.authority) throw new TypeError("request binding mismatch");
   if (parseUtcSeconds(presentation.expiresAt) > Math.min(parseUtcSeconds(request.expiresAt), parseUtcSeconds(presentation.createdAt) + 5 * 60 * 1000)) throw new RangeError("presentation lifetime exceeded");
   if (!Array.isArray(presentation.credentialPresentations) || !Array.isArray(presentation.selfAssertions)) throw new TypeError("presentation item collections must be arrays");
+  if (containsRecordId(presentation)) throw new TypeError("portfolio record IDs are prohibited");
   const requested = lookup(request); const usedRequestIds = new Set(); const presentationIds = new Set();
   for (const item of presentation.credentialPresentations) {
     assertClosedObject(item, ["presentationItemId", "requestItemId", "provenance", "disclosureMode", "credentialRef"], ["presentationItemId", "requestItemId", "provenance", "disclosureMode", "credentialRef"], "credential presentation");
@@ -45,7 +52,6 @@ export function validatePresentation(presentation, request, _ports = {}, paramet
     const wanted = requested.get(item.requestItemId); if (!wanted || !Object.hasOwn(wanted, "credentialType")) throw new TypeError("unrequested credential");
     if (!["direct-issuer", "bvs", "self-asserted-persistent"].includes(item.provenance) || item.disclosureMode !== "public" || !wanted.acceptedDisclosureModes.includes(item.disclosureMode)) throw new TypeError("unsupported disclosure or provenance");
     assertClosedObject(item.credentialRef, ["uri", "manifestHash", "contentHash"], ["uri", "manifestHash", "contentHash"], "credentialRef"); parseAbsoluteUri(item.credentialRef.uri); parseSha256Identifier(item.credentialRef.manifestHash); parseSha256Identifier(item.credentialRef.contentHash);
-    if (JSON.stringify(item).includes("recordId")) throw new TypeError("portfolio record IDs are prohibited");
   }
   for (const item of presentation.selfAssertions) {
     parseRandomId(item.presentationItemId); if (presentationIds.has(item.presentationItemId) || usedRequestIds.has(item.requestItemId)) throw new TypeError("duplicate presentation item"); presentationIds.add(item.presentationItemId); usedRequestIds.add(item.requestItemId);

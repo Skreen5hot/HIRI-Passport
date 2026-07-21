@@ -1,0 +1,17 @@
+{
+  "schema": "hiri:real-holder-preview-runtime-config:v1",
+  "releaseId": "real-holder-preview",
+  "canonicalOrigin": "https://hiri-protocol.org",
+  "artifactResolverOrigins": [],
+  "issuerAuthoritativeCurrentHeadOrigins": [],
+  "remoteResourceOrigins": [],
+  "presentationDeliveryOrigins": [],
+  "resourceManifestSha256": "",
+  "identityAnchorSetVersion": "",
+  "policyVersion": "",
+  "supportedCapabilities": [],
+  "capabilityEvidence": {
+    "sha256": "",
+    "notAfter": "1970-01-01T00:00:00Z"
+  }
+}

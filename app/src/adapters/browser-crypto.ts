@@ -33,11 +33,9 @@ export function createBrowserCryptoPorts(keys: KeyAccess) {
     } }),
     x25519: Object.freeze({
       generateKeyPair: async () => {
-        const generated = await subtle.generateKey({ name: "X25519" }, true, ["deriveBits"]) as CryptoKeyPair;
+        const generated = await subtle.generateKey({ name: "X25519" }, false, ["deriveBits"]) as CryptoKeyPair;
         const publicKey = bytes(await subtle.exportKey("raw", generated.publicKey));
-        const privatePkcs8 = await subtle.exportKey("pkcs8", generated.privateKey);
-        const privateKey = await subtle.importKey("pkcs8", privatePkcs8, { name: "X25519" }, false, ["deriveBits"]);
-        return { privateKey, publicKey };
+        return { privateKey: generated.privateKey, publicKey };
       },
       derive: async (privateKey: CryptoKey, publicKey: Uint8Array) => {
         const imported = await subtle.importKey("raw", source(publicKey), { name: "X25519" }, false, []);

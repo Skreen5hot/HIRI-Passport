@@ -97,6 +97,18 @@ export function parseUtcSeconds(value) {
 export function parseAbsoluteUri(value, { allowFragment = false, maxScalars } = {}) {
   if (typeof value !== "string" || !value.length) fail("URI must be a non-empty string");
   if (maxScalars != null && unicodeScalarLength(value) > maxScalars) fail("URI exceeds scalar limit");
+  if (value.startsWith("hiri://")) {
+    const separator = value.indexOf("/", "hiri://".length);
+    if (separator < 0) fail("HIRI URI must contain a resource path");
+    const authority = value.slice("hiri://".length, separator);
+    const remainder = value.slice(separator);
+    parseEd25519Authority(authority);
+    if (!/^\/[A-Za-z0-9._~!$&'()*+,;=:@%/-]+(?:#[A-Za-z0-9._~!$&'()*+,;=:@%/?-]+)?$/u.test(remainder) ||
+      remainder.includes("?") || (!allowFragment && remainder.includes("#"))) {
+      fail("HIRI URI has an invalid resource path or fragment");
+    }
+    return value;
+  }
   let parsed;
   try {
     parsed = new URL(value);

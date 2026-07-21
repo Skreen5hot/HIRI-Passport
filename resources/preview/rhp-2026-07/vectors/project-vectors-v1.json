@@ -1,0 +1,321 @@
+{
+  "schema": "hiri:rhp-project-test-vectors:v1",
+  "classification": "project test vector",
+  "releaseId": "real-holder-preview",
+  "positive": [
+    {
+      "id": "PV-SELF-PERSISTENT-001",
+      "schemaId": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/persistent-self-assertion/v1",
+      "requirements": ["REQ-SELF-001", "REQ-SELF-001A", "REQ-SELF-003", "REQ-SELF-003A"],
+      "value": {
+        "@context": "https://hiri-protocol.org/resources/preview/rhp-2026-07/contexts/passport/v2",
+        "@type": "hiri:passport:SelfAssertion",
+        "subjectHolderAuthority": "key:ed25519:z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw",
+        "schema": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/persistent-self-assertion/v1",
+        "schemaHash": "sha256:190816721645e25ac4394d0157d69902e64bd1cfd8f9b97fba24e4ca0c51a32d",
+        "claims": { "label": "Preferred name", "value": "Alex" },
+        "assertedAt": "2026-07-21T12:00:00Z"
+      }
+    },
+    {
+      "id": "PV-SELF-EPHEMERAL-001",
+      "schemaId": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/ephemeral-self-assertion/v1",
+      "requirements": ["REQ-SELF-004", "REQ-SELF-005", "REQ-PRESENT-012", "REQ-PRESENT-013"],
+      "value": {
+        "presentationItemId": "ICEiIyQlJicoKSorLC0uLw",
+        "requestItemId": "EBESExQVFhcYGRobHB0eHw",
+        "provenance": "self-asserted-ephemeral",
+        "schema": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/ephemeral-self-assertion/v1",
+        "schemaHash": "sha256:535854b1bf69a9269e82ce5520ae5cfb668a5553c3a1f5e191fcf905846c63f1",
+        "claims": { "label": "Preferred name", "value": "Alex" }
+      }
+    },
+    {
+      "id": "PV-REQUEST-001",
+      "schemaId": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/disclosure-request/v1",
+      "requirements": ["REQ-MSG-001", "REQ-MSG-003", "REQ-MSG-006", "REQ-REQUEST-001", "REQ-REQUEST-003", "REQ-REQUEST-008", "REQ-REQUEST-010", "REQ-REQUEST-011A"],
+      "value": {
+        "protocol": "hiri-passport/2.0",
+        "type": "DisclosureRequest",
+        "requestId": "AAECAwQFBgcICQoLDA0ODw",
+        "verifier": {
+          "authority": "key:ed25519:z3ELeRTTg5W5hAYaEFznzFV1jknNFkjHqS8ytwvQEQP1Z",
+          "verificationMethod": "hiri://key:ed25519:z3ELeRTTg5W5hAYaEFznzFV1jknNFkjHqS8ytwvQEQP1Z/key/main#key-1",
+          "display": { "name": "RHP review verifier", "domain": "hiri-protocol.org" }
+        },
+        "credentialRequests": [
+          {
+            "requestItemId": "ICEiIyQlJicoKSorLC0uLw",
+            "schema": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/persistent-self-assertion/v1",
+            "schemaHash": "sha256:190816721645e25ac4394d0157d69902e64bd1cfd8f9b97fba24e4ca0c51a32d",
+            "credentialType": "SelfAssertion",
+            "acceptedDisclosureModes": ["public"],
+            "required": true,
+            "purpose": "Confirm the holder's saved preferred name for this transaction",
+            "fields": [
+              {
+                "path": "/claims/value",
+                "required": true,
+                "purpose": "Use the saved holder-provided preferred name"
+              }
+            ]
+          }
+        ],
+        "selfAssertionRequests": [
+          {
+            "requestItemId": "EBESExQVFhcYGRobHB0eHw",
+            "schema": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/ephemeral-self-assertion/v1",
+            "schemaHash": "sha256:535854b1bf69a9269e82ce5520ae5cfb668a5553c3a1f5e191fcf905846c63f1",
+            "path": "/claims/value",
+            "purpose": "Confirm the holder-provided preferred name for this transaction",
+            "required": true
+          }
+        ],
+        "nonce": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8",
+        "createdAt": "2026-07-21T12:00:00Z",
+        "expiresAt": "2026-07-21T12:10:00Z",
+        "proof": {
+          "type": "Ed25519Signature2020",
+          "canonicalization": "JCS",
+          "created": "2026-07-21T12:00:00Z",
+          "verificationMethod": "hiri://key:ed25519:z3ELeRTTg5W5hAYaEFznzFV1jknNFkjHqS8ytwvQEQP1Z/key/main#key-1",
+          "proofPurpose": "authentication",
+          "proofValue": "z3ELeRTTg5W5hAYaEFznzFV1jknNFkjHqS8ytwvQEQP1Z"
+        }
+      }
+    },
+    {
+      "id": "PV-PRESENTATION-001",
+      "schemaId": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/passport-presentation/v1",
+      "requestVectorId": "PV-REQUEST-001",
+      "requirements": ["REQ-PRESENT-001", "REQ-PRESENT-002", "REQ-PRESENT-003", "REQ-PRESENT-004", "REQ-PRESENT-006", "REQ-PRESENT-012", "REQ-PRESENT-013"],
+      "value": {
+        "protocol": "hiri-passport/2.0",
+        "type": "PassportPresentation",
+        "presentationId": "AAECAwQFBgcICQoLDA0ODw",
+        "holder": {
+          "authority": "key:ed25519:z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw",
+          "verificationMethod": "hiri://key:ed25519:z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw/key/main#key-1"
+        },
+        "requestBinding": {
+          "requestId": "AAECAwQFBgcICQoLDA0ODw",
+          "nonce": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8",
+          "verifierAuthority": "key:ed25519:z3ELeRTTg5W5hAYaEFznzFV1jknNFkjHqS8ytwvQEQP1Z"
+        },
+        "credentialPresentations": [
+          {
+            "presentationItemId": "MDEyMzQ1Njc4OTo7PD0-Pw",
+            "requestItemId": "ICEiIyQlJicoKSorLC0uLw",
+            "provenance": "self-asserted-persistent",
+            "disclosureMode": "public",
+            "credentialRef": {
+              "uri": "hiri://key:ed25519:z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw/data/self-assertion-EBESExQVFhcYGRobHB0eHw",
+              "manifestHash": "sha256:190816721645e25ac4394d0157d69902e64bd1cfd8f9b97fba24e4ca0c51a32d",
+              "contentHash": "sha256:535854b1bf69a9269e82ce5520ae5cfb668a5553c3a1f5e191fcf905846c63f1"
+            }
+          }
+        ],
+        "selfAssertions": [
+          {
+            "presentationItemId": "ICEiIyQlJicoKSorLC0uLw",
+            "requestItemId": "EBESExQVFhcYGRobHB0eHw",
+            "provenance": "self-asserted-ephemeral",
+            "schema": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/ephemeral-self-assertion/v1",
+            "schemaHash": "sha256:535854b1bf69a9269e82ce5520ae5cfb668a5553c3a1f5e191fcf905846c63f1",
+            "claims": { "label": "Preferred name", "value": "Alex" }
+          }
+        ],
+        "createdAt": "2026-07-21T12:01:00Z",
+        "expiresAt": "2026-07-21T12:06:00Z",
+        "proof": {
+          "type": "Ed25519Signature2020",
+          "canonicalization": "JCS",
+          "created": "2026-07-21T12:01:00Z",
+          "verificationMethod": "hiri://key:ed25519:z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw/key/main#key-1",
+          "proofPurpose": "authentication",
+          "proofValue": "z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw"
+        }
+      }
+    },
+    {
+      "id": "PV-PACKAGE-001",
+      "schemaId": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/presentation-package/v1",
+      "presentationVectorId": "PV-PRESENTATION-001",
+      "requirements": ["REQ-PACKAGE-001", "REQ-PACKAGE-002", "REQ-PACKAGE-009", "REQ-PACKAGE-010"],
+      "value": {
+        "protocol": "hiri-passport/2.0",
+        "type": "PassportPresentationPackage",
+        "presentation": { "$vector": "PV-PRESENTATION-001" },
+        "artifacts": []
+      }
+    },
+    {
+      "id": "PV-PORTFOLIO-001",
+      "schemaId": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/encrypted-portfolio/v1",
+      "requirements": ["REQ-PORTFOLIO-001", "REQ-PORTFOLIO-010", "REQ-PORTFOLIO-011", "REQ-PORTFOLIO-013", "REQ-PORTFOLIO-018"],
+      "value": {
+        "@context": "https://hiri-protocol.org/resources/preview/rhp-2026-07/contexts/passport/v2",
+        "@type": "hiri:passport:EncryptedPortfolio",
+        "schemaVersion": "2.0",
+        "holderAuthority": "key:ed25519:z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw",
+        "records": [
+          {
+            "recordId": "AAECAwQFBgcICQoLDA0ODw",
+            "kind": "persistentSelfAssertion",
+            "assertion": {
+              "uri": "hiri://key:ed25519:z4wBqpZM9xaSheZzJSMawUKKwhdpChKbZ5eu5ky4Vigw/data/self-assertion-EBESExQVFhcYGRobHB0eHw",
+              "manifestHash": "sha256:190816721645e25ac4394d0157d69902e64bd1cfd8f9b97fba24e4ca0c51a32d",
+              "contentHash": "sha256:535854b1bf69a9269e82ce5520ae5cfb668a5553c3a1f5e191fcf905846c63f1"
+            },
+            "provenance": "self-asserted-persistent",
+            "addedAt": "2026-07-21T12:00:00Z",
+            "local": { "label": "Preferred name", "archived": false }
+          }
+        ]
+      }
+    },
+    {
+      "id": "PV-TRUST-001",
+      "schemaId": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/trust-config/v1",
+      "requirements": ["RHP-DR-002 D2-A", "trust-configuration-policy sections 4-12"],
+      "value": {
+        "$resource": "https://hiri-protocol.org/resources/preview/rhp-2026-07/configuration/trust-baseline/v1"
+      }
+    },
+    {
+      "id": "PV-RUNTIME-001",
+      "schemaId": "https://hiri-protocol.org/resources/preview/rhp-2026-07/schemas/runtime-config/v1",
+      "requirements": ["implement-production-runtime-config", "RHP-DR-002 D2-A"],
+      "value": {
+        "schema": "hiri:real-holder-preview-runtime-config:v1",
+        "releaseId": "real-holder-preview",
+        "canonicalOrigin": "https://hiri-protocol.org",
+        "artifactResolverOrigins": [],
+        "issuerAuthoritativeCurrentHeadOrigins": [],
+        "remoteResourceOrigins": [],
+        "presentationDeliveryOrigins": [],
+        "resourceManifestSha256": "sha256:cb1f7e00bfc04c5bd717e249a4d9d52388520b850e00b85e328d85f066ef50e6",
+        "identityAnchorSetVersion": "empty-rhp-2026-07-1",
+        "policyVersion": "empty-rhp-2026-07-1",
+        "supportedCapabilities": [
+          "authority-abandonment",
+          "disposable-holder-authority",
+          "ephemeral-self-assertions",
+          "local-clipboard-presentation-delivery",
+          "local-file-presentation-delivery",
+          "local-file-request-ingress",
+          "local-paste-request-ingress",
+          "persistent-self-assertions",
+          "presentation-signing",
+          "same-device-rotation"
+        ],
+        "capabilityEvidence": {
+          "sha256": "sha256:6c04a50be4a7705d1808bf58b40d1c78cdb604ad69cf4cfa47ddd7d1ac2be81a",
+          "notAfter": "2027-01-21T00:00:00Z"
+        }
+      }
+    }
+  ],
+  "negative": [
+    {
+      "id": "NV-REQUEST-UNKNOWN-MEMBER-001",
+      "baseVectorId": "PV-REQUEST-001",
+      "mutation": { "operation": "add", "pointer": "/unexpected", "value": true },
+      "mustFail": ["schema", "core"],
+      "requirements": ["REQ-MSG-001"]
+    },
+    {
+      "id": "NV-REQUEST-ISSUER-PATH-001",
+      "baseVectorId": "PV-REQUEST-001",
+      "mutation": { "operation": "addIssuerCredentialRequest" },
+      "mustFail": ["schema"],
+      "requirements": ["RHP-DR-001 D6-A", "RHP-DR-002 D2-A"]
+    },
+    {
+      "id": "NV-REQUEST-DUPLICATE-ID-001",
+      "baseVectorId": "PV-REQUEST-001",
+      "mutation": { "operation": "duplicateRequestItem" },
+      "mustFail": ["core"],
+      "requirements": ["REQ-REQUEST-004", "REQ-REQUEST-009"]
+    },
+    {
+      "id": "NV-REQUEST-METHOD-BINDING-001",
+      "baseVectorId": "PV-REQUEST-001",
+      "mutation": { "operation": "replace", "pointer": "/verifier/verificationMethod", "value": "hiri://key:ed25519:z5Pk716N113awdSaUDZEPZVi9Zs6hJmG5KCJtp5qQK3LB/key/main#key-1" },
+      "mustFail": ["core"],
+      "requirements": ["REQ-REQUEST-001"]
+    },
+    {
+      "id": "NV-REQUEST-LIFETIME-001",
+      "baseVectorId": "PV-REQUEST-001",
+      "mutation": { "operation": "replace", "pointer": "/expiresAt", "value": "2026-07-21T12:20:00Z" },
+      "mustFail": ["core"],
+      "requirements": ["REQ-REQUEST-010"]
+    },
+    {
+      "id": "NV-PRESENTATION-ISSUER-PROVENANCE-001",
+      "baseVectorId": "PV-PRESENTATION-001",
+      "mutation": { "operation": "replace", "pointer": "/selfAssertions/0/provenance", "value": "direct-issuer" },
+      "mustFail": ["schema", "core"],
+      "requirements": ["REQ-PRESENT-009", "REQ-PRESENT-012", "RHP-DR-001 D6-A"]
+    },
+    {
+      "id": "NV-PRESENTATION-LOCAL-ID-001",
+      "baseVectorId": "PV-PRESENTATION-001",
+      "mutation": { "operation": "add", "pointer": "/selfAssertions/0/recordId", "value": "AAECAwQFBgcICQoLDA0ODw" },
+      "mustFail": ["schema", "core"],
+      "requirements": ["REQ-PRESENT-017"]
+    },
+    {
+      "id": "NV-SELF-OPEN-CLAIMS-001",
+      "baseVectorId": "PV-SELF-PERSISTENT-001",
+      "mutation": { "operation": "add", "pointer": "/claims/hidden", "value": "not disclosed by the RHP profile" },
+      "mustFail": ["schema"],
+      "requirements": ["REQ-SELF-005", "resource-governance section 6.2"]
+    },
+    {
+      "id": "NV-TRUST-NONEMPTY-001",
+      "baseVectorId": "PV-TRUST-001",
+      "mutation": { "operation": "append", "pointer": "/verifierIdentityAnchors", "value": "key:ed25519:z3ELeRTTg5W5hAYaEFznzFV1jknNFkjHqS8ytwvQEQP1Z" },
+      "mustFail": ["schema"],
+      "requirements": ["RHP-DR-002 D2-A", "trust-configuration-policy section 4"]
+    },
+    {
+      "id": "NV-RUNTIME-REMOTE-ORIGIN-001",
+      "baseVectorId": "PV-RUNTIME-001",
+      "mutation": { "operation": "append", "pointer": "/remoteResourceOrigins", "value": "https://hiri-protocol.org" },
+      "mustFail": ["schema"],
+      "requirements": ["RHP-DR-002 D2-A", "implement-production-runtime-config"]
+    },
+    {
+      "id": "NV-JSON-DUPLICATE-MEMBER-001",
+      "rawJson": "{\"protocol\":\"hiri-passport/2.0\",\"protocol\":\"hiri-passport/2.0\"}",
+      "mustFail": ["strict-json"],
+      "requirements": ["resource-governance section 7"]
+    },
+    {
+      "id": "NV-JSON-DEPTH-001",
+      "generator": { "kind": "nestedArray", "depth": 65 },
+      "mustFail": ["strict-json"],
+      "requirements": ["REQ-PACKAGE-009", "REQ-PACKAGE-010"]
+    },
+    {
+      "id": "NV-JSON-SIZE-001",
+      "generator": { "kind": "string", "utf8Bytes": 1048577 },
+      "mustFail": ["strict-json"],
+      "requirements": ["REQ-PACKAGE-009", "REQ-PACKAGE-010"]
+    },
+    {
+      "id": "NV-RESOURCE-SUBSTITUTION-001",
+      "generator": { "kind": "resourceByteSubstitution" },
+      "mustFail": ["resource-hash"],
+      "requirements": ["resource-governance sections 5 and 7", "REQ-PACKAGE-003"]
+    },
+    {
+      "id": "NV-SCHEMA-REMOTE-REF-001",
+      "generator": { "kind": "externalSchemaReference" },
+      "mustFail": ["schema-inspection"],
+      "requirements": ["resource-governance sections 6.1 and 7", "REQ-PACKAGE-005A"]
+    }
+  ]
+}

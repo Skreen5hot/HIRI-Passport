@@ -3,7 +3,7 @@ export type CredentialStatus = "active" | "suspended" | "revoked" | "expired" | 
 export type PolicyState = "accepted" | "rejected" | "not-evaluated";
 export type Provenance = "direct-issuer" | "bvs" | "self-asserted-persistent" | "self-asserted-ephemeral";
 
-export type CredentialRecord = {
+export type CredentialRecord = Readonly<{
   recordId: string;
   title: string;
   issuer: string;
@@ -15,11 +15,26 @@ export type CredentialRecord = {
   policy: PolicyState;
   updatedAt: string;
   publicContent: boolean;
-  claims: Record<string, string>;
+  claims: Readonly<Record<string, string>>;
   manifestHash: string;
   contentHash: string;
   schema: string;
   schemaHash: string;
-};
+}>;
 
-export type PrivacyEvent = { id: string; verifier: string; purpose: string; disclosed: string[]; at: string; delivery: "delivered" | "pending" | "failed" };
+export type PrivacyEvent = Readonly<{
+  id: string;
+  verifier: string;
+  purpose: string;
+  disclosed: readonly string[];
+  at: string;
+  delivery: "delivered" | "pending" | "failed";
+}>;
+
+/** Public authority facts safe for local view state. Never contains key handles. */
+export type HolderAuthorityView = Readonly<{
+  authority: string;
+  activeMethodId: string;
+  createdAt: string;
+  lifecycle: "active" | "compromised" | "abandoned";
+}>;
