@@ -1,2 +1,22 @@
 import { test, expect } from "./fixtures";
-test("installable offline shell works beneath the Pages project path", async ({ page, context }) => { await page.goto("/HIRI-Passport/#/home"); await expect(page.getByRole("heading", { level: 1 })).toContainText(/passport/i); await expect(page.locator('link[rel="manifest"]')).toHaveAttribute("href", /\/HIRI-Passport\/manifest\.webmanifest$/u); const scope = await page.evaluate(async () => (await navigator.serviceWorker.ready).scope); expect(scope).toMatch(/\/HIRI-Passport\/$/u); await page.waitForFunction(() => navigator.serviceWorker.controller !== null); await context.setOffline(true); await page.reload(); await expect(page.getByRole("heading", { level: 1 })).toContainText(/passport/i); await context.setOffline(false); });
+
+test("installable offline shell works beneath the Pages project path", async ({ page, context }) => {
+  test.skip(
+    process.env.PWA_BASE_PATH !== "/HIRI-Passport/",
+    "This acceptance case requires the dedicated project-path build used by CI."
+  );
+
+  await page.goto("/HIRI-Passport/#/home");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(/passport/i);
+  await expect(page.locator('link[rel="manifest"]')).toHaveAttribute(
+    "href",
+    /\/HIRI-Passport\/manifest\.webmanifest$/u
+  );
+  const scope = await page.evaluate(async () => (await navigator.serviceWorker.ready).scope);
+  expect(scope).toMatch(/\/HIRI-Passport\/$/u);
+  await page.waitForFunction(() => navigator.serviceWorker.controller !== null);
+  await context.setOffline(true);
+  await page.reload();
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(/passport/i);
+  await context.setOffline(false);
+});
