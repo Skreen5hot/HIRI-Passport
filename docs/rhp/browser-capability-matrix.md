@@ -1,16 +1,18 @@
 # Real Holder Preview browser capability matrix
 
-Status: PROVISIONAL TEST MATRIX — no browser or device is approved for real authority creation
+Status: APPROVED EVIDENCE-FIRST TEST STRATEGY — no browser or device is approved for real authority creation
 
 Owner gate: `OWNER-RHP-06`
 
-Related gates: `OWNER-RHP-07` key/local-auth policy and `OWNER-RHP-08` backup/recovery policy
+Authority: RHP-DR-002 D3-A, signed tag `RHP-DR-002-approved-2026-07-20`
+
+Related gates: `OWNER-RHP-07` key/local-auth policy and `OWNER-RHP-08` disposable-authority/recovery-exclusion policy
 
 ## 1. Decision rule
 
 Browser brand or user-agent version never establishes support. A device/browser pair may create a real preview authority only after exact-version physical evidence passes every mandatory capability, durability, lifecycle, accessibility, and privacy test required by the enabled workflows.
 
-Until owner approval, every platform is inspect-only for real-data purposes. The Synthetic Demo may continue to run with visible labeling.
+Until exact-version physical evidence and per-platform owner approval, every platform is inspect-only for real-data purposes. The Synthetic Demo may continue to run with visible labeling.
 
 ## 2. Evidence already available
 
@@ -46,7 +48,7 @@ CI runs with `HIRI_DEMO_MODE: "true"`. No current result authorizes real key cre
 | AES-256-GCM | Generate/import, encrypt/decrypt, tamper and AAD tests | Block portfolio/backup paths |
 | HKDF-SHA256 | Import and derive known-answer bits | Block portfolio recipient derivation |
 | Ed25519 | Generate non-extractable private key, sign/verify vectors, reload use | Block authority/signing |
-| X25519 | Generate non-extractable private key, derive vectors, reload use | Block portfolio recipients/device addition |
+| X25519 | Generate non-extractable private key, derive vectors, reload use | Block portfolio cryptography; device addition remains excluded by policy |
 | IndexedDB | Open, transaction, abort, structured-clone `CryptoKey`, reload/restart persistence | Block all real state |
 | Service worker | Install/update/scope, waiting-worker prompt, multi-tab activation, `controllerchange` reload, connected-client convergence, offline/reconnect, installed-mode, and broken-worker recovery | May allow online inspect-only; block supported PWA claim and all stale-client sensitive operations |
 | Storage persistence API | Query/request/result and eviction communication | Absence may be allowed only with explicit durability policy; never imply guaranteed persistence |
@@ -82,7 +84,7 @@ Each pair must pass:
 - quota pressure, denied persistence request, storage clearing, simulated eviction, corrupted record, and unavailable IndexedDB;
 - blocked/version-change transaction, concurrent tabs, expired lease, partial migration, downgrade refusal, and no silent reset;
 - offline shell with status/resource-dependent results remaining unknown;
-- routine rotation, one-key loss, compromise, device addition/removal, backup verification, restore, and destructive deletion according to approved policies.
+- safe same-device rotation where an authorized local successor exists, one-key loss, compromise, authority abandonment, destructive deletion, and proof that backup/restore/device-add success paths are absent.
 
 Installation to a home screen or desktop does not prove durable storage or recovery.
 
@@ -127,9 +129,9 @@ Each physical test record contains:
 
 Evidence expires when the browser/OS major version, storage/key behavior, application key path, service-worker lifecycle, enabled workflow, or relevant owner policy changes.
 
-## 10. Recommended initial owner decision
+## 10. Approved initial evidence strategy
 
-The safest approval sequence is:
+RHP-DR-002 D3-A approves this sequence:
 
 1. approve no browser in advance;
 2. complete the protected-key and storage implementation;
@@ -138,4 +140,4 @@ The safest approval sequence is:
 5. retain inspect-only behavior everywhere else;
 6. add Safari/WebKit and Firefox only after separate evidence rather than assuming Chromium equivalence.
 
-This recommendation is not approval. Real authority creation remains disabled until OWNER-RHP-06, OWNER-RHP-07, and the applicable backup decision are authenticated.
+This is approval of the evidence strategy, not approval of any browser/device version. Real authority creation remains disabled until the protected-key, mandatory WebAuthn UV, disposable-authority, automated acceptance, and physical-device evidence pass and the owner approves exact tested version ranges.

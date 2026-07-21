@@ -22,18 +22,18 @@ An unresolved item never authorizes Codex to invent a value. Dependent implement
 
 ## Summary
 
-Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655770a7ee26a72cd50d5d54226b576f`, exact-record SHA-256 `5fb10c01aa080a47f4d0ddfd58683babd1c5745e4f5fa3617839f55bf1d024f3`, and verified signed tag `RHP-DR-001-approved-2026-07-20` using public GPG fingerprint `07171B3AF6042998D1ADDEE0DE640D2A3317B186`. The independent-verification public key is stored at `docs/rhp/keys/aaron-damiano-rhp-2026.asc`. `OWNER-RHP-02` has public HTTPS origin evidence at `https://hiri-protocol.org/`. RHP-DR-001 D3-A and D6-A exclude an external issuer/verifier partner pilot and BVS scope; approved §4/§5 language limits public claims. Production-mode controls and the remaining owner gates still default closed.
+Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655770a7ee26a72cd50d5d54226b576f`, exact-record SHA-256 `5fb10c01aa080a47f4d0ddfd58683babd1c5745e4f5fa3617839f55bf1d024f3`, and verified signed tag `RHP-DR-001-approved-2026-07-20` using public GPG fingerprint `07171B3AF6042998D1ADDEE0DE640D2A3317B186`. RHP-DR-002 Final 1 authenticates the target policies for `OWNER-RHP-03`, `OWNER-RHP-04`, `OWNER-RHP-06`, `OWNER-RHP-07`, and `OWNER-RHP-08` through decision commit `03b24529f999165c2b2ea23520c43ad6e00f9e6f`, exact-record SHA-256 `17e4f3d7ee47b823020a7595d72422f1f99376a03d848a7d6b917d92be25a36f`, signed tag `RHP-DR-002-approved-2026-07-20`, and fingerprint `2B7BA5C378749418B1D051D9C01347EA45970647`. Public verification keys are mapped in `docs/rhp/keys/README.md`. `OWNER-RHP-02` has public HTTPS origin evidence at `https://hiri-protocol.org/`. Production implementation, evidence, independent review, operations, and final release gates still default closed.
 
 | ID | Owner-only blocker | Needed before | Current status |
 |---|---|---|---|
 | `OWNER-RHP-01` | Release identity, audience, and permitted claims | Production-mode implementation | CLOSED — signed evidence verified |
 | `OWNER-RHP-02` | Dedicated verified origin and DNS control | Real-data deployment | EVIDENCED — implementation controls pending |
-| `OWNER-RHP-03` | Normative resource publication authority | Resource-dependent real processing | OPEN — governance draft prepared |
-| `OWNER-RHP-04` | Trusted issuers, identity anchors, and authoritative resolvers | Real request/credential trust decisions | OPEN — empty baseline drafted |
+| `OWNER-RHP-03` | Normative resource publication authority | Resource-dependent real processing | DECIDED — D1-A governance; reviewer and exact manifest approval pending |
+| `OWNER-RHP-04` | Trusted issuers, identity anchors, and authoritative resolvers | Real request/credential trust decisions | DECIDED — D2-A empty trust/warned consent; implementation and evidence pending |
 | `OWNER-RHP-05` | Pilot issuer and verifier relationships | External partner pilot | OUT-OF-SCOPE — no partner pilot authorized |
-| `OWNER-RHP-06` | Supported-browser and device policy | Real authority creation/release candidate | OPEN — no platform approved |
-| `OWNER-RHP-07` | Holder key-protection and local-authentication policy | Real authority creation | OPEN |
-| `OWNER-RHP-08` | Backup, loss, compromise, and recovery policy | Real authority creation | OPEN |
+| `OWNER-RHP-06` | Supported-browser and device policy | Real authority creation/release candidate | DECIDED — D3-A evidence strategy; no platform approved pending physical evidence |
+| `OWNER-RHP-07` | Holder key-protection and local-authentication policy | Real authority creation | DECIDED — D4-A non-extractable keys and mandatory WebAuthn UV; implementation/evidence pending |
+| `OWNER-RHP-08` | Backup, loss, compromise, and recovery policy | Real authority creation | DECIDED — D5-A disposable single-device authority; exclusion controls/evidence pending |
 | `OWNER-RHP-09` | Privacy, legal, jurisdiction, and age policy | Collection of real data | OPEN |
 | `OWNER-RHP-10` | Retention, telemetry, support, and deletion policy | Pilot operations | OPEN |
 | `OWNER-RHP-11` | Independent security, privacy, and accessibility review | Public real-data release | OPEN |
@@ -87,9 +87,9 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655
 
 **Prepared build artifact:** `docs/rhp/resource-governance.md` defines an empty fail-closed registry and the exact manifest/review/signing process. It does not close this owner gate or make preview bytes normative.
 
-**Prepared owner decision:** RHP-DR-002 D1 contains the recommended project-preview approval model and safe wait-for-Candidate alternative.
+**Authenticated owner decision:** RHP-DR-002 D1-A approves the project-preview governance model after independent technical review. It does not approve any resource bytes.
 
-**Current owner input:** The owner will identify a trusted technical person. No reviewer is designated yet; selecting D1-A records the target governance but does not approve a resource manifest or close this gate.
+**Current owner input:** The owner will identify a trusted technical person. No reviewer is designated yet; D1-A records the target governance but does not approve a resource manifest or close this gate.
 
 **Why Codex cannot close it:** Codex can draft contexts, schemas, profiles, hashes, and vectors, but cannot unilaterally make a Working Draft normative or designate itself as the publishing authority. Final bytes and identifiers require project or upstream standards governance.
 
@@ -99,7 +99,7 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655
 2. Final public URIs for contexts, schemas, evidence profiles, and adapter profiles used by the preview.
 3. The immutable approved bytes and SHA-256 identifiers.
 4. Versioning, correction, deprecation, and compromise procedures.
-5. A decision on whether the preview pins a named pre-Candidate resource set or waits for Candidate publication.
+5. Confirmation that every approved resource remains labeled project-preview and `candidateReady:false` under D1-A.
 6. Official positive and adversarial vectors, or approval to label preview vectors as project-specific and non-conformance evidence.
 7. A named technical reviewer who did not author the resource bytes and can independently review the exact manifest package. Repository administration is not required.
 
@@ -111,21 +111,21 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655
 
 ### OWNER-RHP-04 — Trusted issuers, identity anchors, and authoritative resolvers
 
-**Prepared build artifact:** `docs/rhp/trust-configuration-policy.md` proposes empty issuer, BVS, identity-anchor, resolver, current-head, remote-resource, delivery, and relying-party-policy sets. Real trust-dependent success paths remain disabled pending approval.
+**Prepared build artifact:** `docs/rhp/trust-configuration-policy.md` defines the approved empty issuer, BVS, identity-anchor, resolver, current-head, remote-resource, delivery, credential-schema, and relying-party-policy sets. Real request consent and signing remain disabled pending implementation and evidence.
 
-**Prepared owner decision:** RHP-DR-002 D2 selects whether identity-unknown but cryptographically valid requests may reach warned consent under the empty baseline.
+**Authenticated owner decision:** RHP-DR-002 D2-A permits only cryptographically valid, lifecycle-valid requests from identity-unknown verifier authorities to reach warned consent after all specified controls pass. Ingress is file/paste only; egress is file/clipboard only; policy remains `not-evaluated`.
 
-**Why Codex cannot close it:** Trust configuration is a policy and governance act. Codex cannot decide that an organization controls an issuer authority, that a resolver is issuer-authoritative, or that a legal identity claim is acceptable.
+**Why the gate is not closed:** The empty policy is authenticated, but its fail-closed implementation, request/consent controls, triggered threat-model re-review, and release evidence are incomplete. Codex also cannot add a non-empty authority, identity anchor, resolver, or relying-party policy without a successor owner decision and supporting governance evidence.
 
-**Owner must provide:**
+**Remaining conditions for this release:**
 
-1. Approved issuer authorities and the evidence binding each authority to an organization.
-2. Approved identity anchors, jurisdictions, expiry/review dates, and revocation procedures.
-3. Issuer-authoritative current-head origins and the exact authority by which each is trusted.
-4. Artifact resolver origins, CORS expectations, availability requirements, and provenance classification.
-5. The relying-party or holder display policy version and the person authorized to approve changes.
+1. Keep every trust, issuer, resolver, current-head, remote-resource, HTTPS-delivery, credential-schema, and relying-party-policy set empty.
+2. Implement the complete structural, cryptographic, lifecycle, resource-pin, replay, hostile-text, consent, mandatory WebAuthn UV, and local-delivery controls.
+3. Keep issuer/BVS artifacts unsupported or inspection-only and never promote identity/status/policy unknown to success.
+4. Complete the triggered threat-model re-review and applicable independent review before activation.
+5. Use a successor signed decision before adding any trust entry or network request/delivery origin.
 
-**Acceptable evidence:** A versioned public trust configuration, supporting organizational evidence references, change-control record, and tests proving unknown organizations and unapproved origins remain `unknown` rather than trusted.
+**Acceptable evidence:** A versioned public empty trust configuration bound to the release, change-control record, and tests proving identity-unknown warning persistence, `not-evaluated` policy, inspection-only issuer artifacts, absent network endpoints, and refusal to promote unknown organizations or unapproved origins. A future non-empty configuration additionally requires organizational/source evidence and a successor signed decision.
 
 **Unlocks:** `implement-resolver-and-head-adapters`, `implement-identity-and-policy-configuration`, `implement-real-credential-acquisition`, and `implement-live-request-acceptance`.
 
@@ -155,16 +155,16 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655
 
 **Prepared build artifact:** `docs/rhp/browser-capability-matrix.md` records current CI evidence and approves no platform for real authority creation. Exact-version physical evidence and owner approval are still required.
 
-**Prepared owner decision:** RHP-DR-002 D3 defines evidence-first mobile/desktop strategies without pre-approving a browser.
+**Authenticated owner decision:** RHP-DR-002 D3-A selects an evidence-first Windows Chromium and Android Chromium strategy without pre-approving any browser/version.
 
 **Why Codex cannot close it:** Automated capability results can be collected, but the owner must decide which browsers/devices are supported and accept the user impact of excluding or degrading platforms.
 
 **Owner must provide:**
 
-1. Minimum supported operating systems, browser families, versions, and device classes.
-2. Whether iOS/WebKit, Android/Chromium, desktop Chromium, Firefox, and desktop Safari are required, preview-only, or unsupported.
-3. Required behavior when Ed25519, X25519, IndexedDB durability, storage persistence, WebAuthn, or service workers are unavailable.
-4. The review cadence and emergency de-support process.
+1. Exact physical Windows Chromium and Android Chromium test records after automated readiness passes.
+2. The exact OS/browser/device version ranges approved from passing evidence.
+3. Failure-mode screenshots and confirmation that every other platform remains inspect-only.
+4. The review cadence and emergency de-support record for the approved ranges.
 
 **Acceptable evidence:** An approved capability matrix with physical-device results, failure-mode screenshots, and a dated owner acceptance.
 
@@ -174,41 +174,41 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655
 
 ### OWNER-RHP-07 — Holder key-protection and local-authentication policy
 
-**Prepared owner decision:** RHP-DR-002 D4 compares mandatory WebAuthn user verification, unlocked-session confirmation, and a plan-revising external signer. The recommended choice retains non-extractable browser keys plus fresh WebAuthn UV with no weak fallback.
+**Authenticated owner decision:** RHP-DR-002 D4-A requires non-extractable browser keys plus fresh mandatory WebAuthn user verification for authority creation and sensitive key actions, with no weaker production fallback.
 
-**Why Codex cannot close it:** Codex can implement several protection models but cannot select the security/usability tradeoff, claim hardware protection, or decide when the holder must re-authenticate.
+**Why the gate is not closed:** The security/usability choice is authenticated, but implementation, physical-browser evidence, independent review, and exact public limitation wording remain incomplete. Codex cannot claim hardware protection or platform assurance without separate evidence.
 
-**Owner must decide:**
+**Remaining implementation and evidence:**
 
-1. Whether browser non-extractable CryptoKeys are sufficient for the preview.
-2. Whether WebAuthn user verification is mandatory, preferred, or unsupported for key release.
-3. Which operations require fresh local authentication: authority creation, presentation signing, backup, restore, rotation, device addition/removal, and destructive deletion.
-4. Session timeout, cancellation, retry, and lockout behavior.
-5. Whether platform or hardware-backed claims are prohibited unless independently attested.
+1. Prove final private keys are generated non-extractably and durably structured-cloned on each approved platform.
+2. Require fresh WebAuthn UV for authority creation, presentation signing, same-device rotation, compromise action, authority abandonment, and destructive local deletion.
+3. Bind each authorization to one exact operation/state for at most 300 seconds with replay, cancellation, navigation, and material-state invalidation.
+4. Fail closed on cancellation, unsupported authenticators, missing UV, retry exhaustion, or expired capability evidence.
+5. Prohibit platform-, passkey-, or hardware-backed claims unless independently attested.
 
 **Acceptable evidence:** An approved key-protection profile, threat-model mapping, browser evidence, and explicit wording for limitations.
 
-**Unlocks:** `harden-protected-key-storage`, `implement-local-authentication`, `implement-holder-onboarding`, `implement-signed-presentations`, and `implement-device-lifecycle`.
+**Unlocks:** `harden-protected-key-storage`, `implement-local-authentication`, `implement-holder-onboarding`, `implement-signed-presentations`, and `implement-disposable-authority-lifecycle`.
 
 **Safe default:** No real key generation or signing.
 
 ### OWNER-RHP-08 — Backup, loss, compromise, and recovery policy
 
-**Prepared owner decision:** RHP-DR-002 D5 recommends a disposable single-device authority with no private-key backup/restore or device addition, consistent with RHP-DR-001 D5-A.
+**Authenticated owner decision:** RHP-DR-002 D5-A selects a disposable single-device authority with no private-key backup/export, same-authority restore, device addition/removal, recipient continuity, browser-sync recovery, or vendor-account recovery.
 
-**Why Codex cannot close it:** The owner must decide what material a backup contains, what loss scenarios are supported, and what claims users may rely on. `OPEN-RECOVERY-01` prevents Codex from inventing total-loss continuity.
+**Why the gate is not closed:** The no-backup/no-device-add policy is authenticated, but the exclusion boundary, irreversible-loss UX, safe same-device lifecycle behavior, abandonment/deletion path, physical evidence, and independent review remain incomplete. `OPEN-RECOVERY-01` still prohibits any total-loss continuity claim.
 
-**Owner must decide:**
+**Remaining implementation and evidence:**
 
-1. Whether the preview permits encrypted key export, recipient-based device recovery, both, or neither.
-2. Required passphrase policy and whether recovery material may be stored with a provider.
-3. Mandatory backup verification points and restore replacement/merge rules.
-4. One-key loss, device compromise, suspected compromise, and all-keys-lost procedures.
-5. Exact user-facing statement that total-loss authority recovery is unavailable unless a future approved protocol resolves it.
+1. Remove or production-disable every private-key backup, restore, device-add/remove, and recovery success path.
+2. Require irreversible-loss acknowledgement before authority creation and destructive deletion.
+3. Permit same-device rotation or one-method compromise only when another authorized local method already exists and the Core transition is atomic; otherwise treat loss as terminal.
+4. Implement authenticated authority abandonment and complete local deletion with post-delete verification.
+5. Test that browser sync, OS backup, biometrics, old ciphertext, or a vendor account never appears as same-authority recovery.
 
-**Acceptable evidence:** Approved recovery matrix, rehearsal record for each supported scenario, and destructive-action acceptance text.
+**Acceptable evidence:** Negative tests proving private-key backup/export, restore, device addition/removal, and account/browser-sync recovery are absent; approved irreversible-loss and destructive-action text; safe same-device rotation/compromise evidence where applicable; and an authenticated authority-abandonment/local-deletion rehearsal.
 
-**Unlocks:** `implement-protected-backup-and-restore`, `implement-device-lifecycle`, and `generate-rhp-release-evidence`.
+**Unlocks:** `implement-disposable-authority-lifecycle` and `generate-rhp-release-evidence`.
 
 **Safe default:** No production authority creation until the user acknowledges irreversible total loss; backup features remain disabled.
 
@@ -269,7 +269,7 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655
 
 ### OWNER-RHP-12 — Production hosting, repository, and deployment controls
 
-**Current decision:** GitHub Pages, GitHub Actions, custom origin `https://hiri-protocol.org`, and HTTPS are selected and operating. The owner approved a 15-minute emergency-replacement convergence target for visible, active, network-connected clients on 2026-07-20; authenticated binding and measured evidence remain pending. Branch/reviewer policy, real-data environment approval, rollback, header limitations, monitoring, artifact/SBOM retention, and release evidence remain open.
+**Current decision:** GitHub Pages, GitHub Actions, custom origin `https://hiri-protocol.org`, and HTTPS are selected and operating. RHP-DR-002 authenticates the 15-minute emergency-replacement convergence target for visible, active, network-connected clients; implementation and measured evidence remain pending. Branch/reviewer policy, real-data environment approval, rollback, header limitations, monitoring, artifact/SBOM retention, and release evidence remain open.
 
 **Why Codex cannot close it:** Codex can author workflows but cannot own billing, configure organization-wide policy without authority, act as the sole release approver, or safely invent production credentials.
 
@@ -354,7 +354,7 @@ Checkpoint: 2026-07-20. `OWNER-RHP-01` is closed by decision commit `6808692b655
 **Owner must review:**
 
 1. Every blocker above and its evidence.
-2. CI, production artifact, browser/device, migration, backup/restore, resolver, and end-to-end pilot results.
+2. CI, production artifact, browser/device, migration, backup/restore/device-add exclusion, authority-abandonment, resolver, and end-to-end preview results.
 3. Independent findings and unresolved exceptions.
 4. Rollback, incident, support, privacy, and participant-exit readiness.
 5. The exact release version, commit, artifact digest, origin, date, audience, and expiration/review date.

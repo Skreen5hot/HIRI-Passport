@@ -1,8 +1,10 @@
 # Real Holder Preview resource governance
 
-Status: GOVERNANCE DRAFT — no production resource set is approved
+Status: APPROVED TARGET GOVERNANCE — no production resource set is approved
 
 Owner gate: `OWNER-RHP-03`
+
+Authority: RHP-DR-002 D1-A, signed tag `RHP-DR-002-approved-2026-07-20`
 
 Technical gate: `OPEN-CONTEXT-01`
 
@@ -20,12 +22,12 @@ It does not turn a Working Draft resource into a Candidate or ecosystem-normativ
 2. The Core v2.0.0 Working Draft governs Passport messages and content.
 3. BVP v3.0.0 governs BVS behavior only where BVS scope is enabled; BVS is excluded from this preview.
 4. UX v2.0.0 governs application behavior without changing protocol bytes.
-5. RHP-DR-001 and `docs/rhp/release-contract.md` narrow the preview scope.
+5. RHP-DR-001, RHP-DR-002, and `docs/rhp/release-contract.md` narrow the preview scope.
 6. A signed preview resource approval selects exact project resource bytes; it cannot relax a higher-level requirement.
 
 ## 3. Current state
 
-No production resource manifest is approved. `app/src/resources/catalog.ts` correctly contains an empty production catalog and reports:
+RHP-DR-002 D1-A approves the project-preview resource governance model in this document. It does not approve any resource bytes or close `OWNER-RHP-03`: no independent reviewer is designated and no exact manifest hash has received signed owner approval. `app/src/resources/catalog.ts` therefore correctly contains an empty production catalog and reports:
 
 ```text
 productionReady: false
@@ -158,7 +160,7 @@ Repository and UI language must use:
 
 Publishing exact bytes and hashes improves reproducibility but does not by itself establish standards authority or conformance.
 
-## 11. Initial approval package required to close OWNER-RHP-03
+## 11. Remaining approval package required to close OWNER-RHP-03
 
 The first resource decision must include at minimum:
 

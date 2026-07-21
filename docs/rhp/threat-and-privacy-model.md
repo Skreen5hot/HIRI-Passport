@@ -69,12 +69,12 @@ The build assumes the standardized cryptographic primitives, HTTPS implementatio
 | RHP-T04 | Same-origin or lookalike origin accesses state | Exact custom-origin enforcement before storage/key access; refuse project Pages, ports, frames, and alternate hosts | Origin adversarial tests |
 | RHP-T05 | IndexedDB rollback, corruption, eviction, or partial migration | Authenticated heads, monotonic migrations, journals, transactions, downgrade refusal, no silent reset | Storage/migration matrix |
 | RHP-T06 | Malicious resource or schema changes semantics | URI+SHA-256 selection, packaged bytes, closed schemas, remote-ref prohibition, size/depth limits | Resource manifest and adversarial vectors |
-| RHP-T07 | Resolver reachability is mistaken for authority/current status | Empty default allowlists; preserve source/time; require explicit issuer-authoritative configuration; otherwise `unknown` | Trust-config and status tests |
+| RHP-T07 | Resolver reachability is mistaken for authority/current status | RHP-DR-002 D2-A requires empty resolver/current-head sets and refusal before network access; holder-supplied, cached, or reachable data remains `unknown` | Empty-config, no-network, and status tests |
 | RHP-T08 | Request replay/substitution or purpose/display text impersonates a system security message | Verify signature, method, time, nonce, resource pins, and replay before consent; render attacker text inertly inside a fixed application-owned frame; keep the identity-unknown warning associated throughout review and repeat it at final authorization | Request/consent and adversarial-copy tests |
 | RHP-T09 | Consent authorizes different bytes or excess content | Bind exact request and selection; show complete-public content; one authorization creates at most one presentation | Signing-target and UI tests |
 | RHP-T10 | Delivery retry creates changed or duplicate authority action | Persist signed bytes before transport; retries use identical bytes; distinguish attempted/acknowledged/verified | Delivery/receipt tests |
 | RHP-T11 | Clipboard, download, screenshot, or app switching leaks content | Explicit actions, warnings, platform privacy controls where available, no guaranteed clipboard deletion claim | Physical-device review |
-| RHP-T12 | Backup leaks keys or gives false recovery assurance | Owner-approved format only, authenticated encryption, bounded derivation, restore rehearsal, exact limitations | Backup decision and rehearsal |
+| RHP-T12 | An export, backup, restore, device-add, browser-sync, or vendor-account path leaks keys or implies false recovery | Exclude every private-key backup/restore/device-add success path under RHP-DR-002 D5-A; keep final keys non-extractable; test refusal and exact total-loss language | Exclusion-boundary and destructive-UX tests |
 | RHP-T13 | Device/key loss is represented as recoverable | State non-durable limitation; disable unsupported recovery; distinguish rotation, compromise, and total loss | Onboarding/destructive UX tests |
 | RHP-T14 | Service worker caches mutable/sensitive traffic | Precache reviewed shell and immutable resources only; notices and protocol/network traffic stay network-only | Cache manifest audit |
 | RHP-T15 | Logs, analytics, support, or CI artifacts collect identifiers/claims | No analytics by default, structured redaction, public synthetic CI only, controlled failure artifacts | Log/telemetry tests |
@@ -90,7 +90,7 @@ The following repository state is acceptable only because the deployed build is 
 2. UI and state modules still import synthetic fixtures. A real build must exclude those modules rather than merely hide demo controls.
 3. `.github/workflows/pages.yml` explicitly builds with `HIRI_DEMO_MODE: "true"`. That setting must remain until all real-data deployment gates close.
 4. `app/src/resources/catalog.ts` has no production resources and reports `productionReady: false`. This is the correct fail-closed state until resource governance is approved.
-5. **`RHP-BUILD-05` — current-artifact sensitive-operation gate:** `app/src/components/pwa/update-coordinator.tsx` now surfaces a waiting worker and reloads after `controllerchange`, but no common production gate yet checks capability-evidence expiry and current-artifact state before every authority creation, signing, rotation, destructive deletion, or later approved backup/device action. Before real-data activation, `harden-pwa-lifecycle` and `implement-local-authentication` must provide one fail-closed gate that blocks a stale client, activates a reviewed waiting worker, and permits the operation only after `controllerchange` and fresh capability evidence. Offline/reconnected clients must pass the same gate. UI wording alone is insufficient.
+5. **`RHP-BUILD-05` — current-artifact sensitive-operation gate:** `app/src/components/pwa/update-coordinator.tsx` now surfaces a waiting worker and reloads after `controllerchange`, but no common production gate yet checks capability-evidence expiry and current-artifact state before every authority creation, signing, same-device rotation, authority abandonment, or destructive deletion. Before real-data activation, `harden-pwa-lifecycle` and `implement-local-authentication` must provide one fail-closed gate that blocks a stale client, activates a reviewed waiting worker, and permits the operation only after `controllerchange` and fresh capability evidence. Offline/reconnected clients must pass the same gate. UI wording alone is insufficient.
 
 These findings are build tasks, not accepted residual risks.
 
@@ -105,7 +105,7 @@ The preview's only product purpose is to let a holder create and use a disposabl
 - no request, presentation, credential, or claim values in URLs;
 - no support uploads until OWNER-RHP-09, OWNER-RHP-10, and OWNER-RHP-13 define purpose, access, retention, and deletion.
 
-Local history may record the verifier authority, signed purpose, disclosed items, time, byte hash, and delivery state. It must not include undisclosed portfolio records and remains excluded from protocol messages and backups unless a later approved policy explicitly includes it.
+Local history may record the verifier authority, signed purpose, disclosed items, time, byte hash, and delivery state. It must not include undisclosed portfolio records and remains excluded from protocol messages and every export path.
 
 ## 9. Retention and deletion baseline
 
@@ -129,7 +129,7 @@ The owner must explicitly resolve or accept:
 
 - supported browser/device and physical-test coverage (`OWNER-RHP-06`);
 - browser key-protection and local-authentication assurance (`OWNER-RHP-07`);
-- backup, loss, compromise, and recovery behavior (`OWNER-RHP-08`);
+- implementation and evidence for the signed no-backup, loss, compromise, abandonment, and recovery-exclusion policy (`OWNER-RHP-08`);
 - privacy/legal/age and infrastructure-log position (`OWNER-RHP-09`);
 - retention, deletion, support, and telemetry operations (`OWNER-RHP-10`);
 - independent security, privacy, and accessibility findings (`OWNER-RHP-11`);

@@ -23,12 +23,12 @@ The static PWA has no application backend. GitHub Pages delivers public files; h
 | C05 | Protected-key adapter | `CryptoKey` handles and public key bytes | WebCrypto + IndexedDB |
 | C06 | Portfolio storage | Encrypted portfolio, records, settings, journals | IndexedDB at approved origin |
 | C07 | Resource registry | Immutable resource bytes and pins | Packaged bytes/IndexedDB cache |
-| C08 | Resolver/current-head adapter | Authenticated evidence, provenance, bounded cache | Network + IndexedDB; disabled by default |
+| C08 | Resolver/current-head boundary | No current data; empty configuration produces unavailable/unknown without network access | In-process fail-closed adapter; disabled by signed baseline |
 | C09 | Replay/authorization store | Request tuples, one-shot authorization, signed byte reference | IndexedDB |
 | C10 | Local privacy history | Holder-visible disclosure/delivery receipt | IndexedDB |
 | C11 | Service worker/cache and in-page update coordinator | Reviewed shell, immutable public resources, and non-sensitive lifecycle state only | Cache Storage and page memory |
-| C12 | Clipboard/download | User-selected presentation or backup bytes | OS/external application boundary |
-| C13 | HTTPS delivery endpoint | Exact signed presentation bytes only | External recipient; disabled by default |
+| C12 | Clipboard/download | User-selected presentation bytes only | OS/external application boundary |
+| C13 | Future HTTPS delivery endpoint | No current data; prohibited by RHP-DR-002 D2-A | External recipient; unconfigured |
 | C14 | Public preview/notice pages | Public limitation and emergency text only | GitHub Pages; notices network-only |
 | C15 | GitHub Actions | Synthetic tests, public build metadata, redacted failures | External CI |
 
@@ -36,7 +36,7 @@ The static PWA has no application backend. GitHub Pages delivers public files; h
 
 | Class | Examples | Sensitivity | Protocol-visible? |
 |---|---|---|---|
-| D01 Private key material | Ed25519/X25519 private key, content key, backup passphrase | Critical secret | Never |
+| D01 Private key material | Ed25519/X25519 private key, content key, local-authentication challenge material | Critical secret | Never |
 | D02 Public authority data | Holder authority, verification methods, public keys | Correlatable public identifier | When required and consented |
 | D03 Encrypted local state | Portfolio ciphertext, recipient metadata, authenticated manifest | Confidential/correlatable | No public publication in this preview |
 | D04 Decrypted holder content | Self-assertion values, imported claims, notes | Potentially sensitive | Only exact consented presentation content |
@@ -62,15 +62,15 @@ The static PWA has no application backend. GitHub Pages delivers public files; h
 | F08 | C03 → C06 | Approved persistent self-assertion | Explicit save | Pinned schema, self-asserted provenance, protected local storage, no publication | Until holder deletion/exit |
 | F09 | C03 → memory only | Ephemeral self-assertion | One accepted request | Exact request/schema/path binding, one presentation only | Release after signing/cancel/failure |
 | F10 | C06/C03 → C02 | Claims and evidence display | Holder inspection/consent | Inert hostile text, separate evidence dimensions, no premature aggregate trust | Render memory only |
-| F11 | C08 ↔ allowlisted endpoint | Artifact/current-head request and bounded response | Explicit verification need | HTTPS, exact allowlist, no redirects, CORS, timeout, content type/size, provenance, authority classification | Authenticated bounded cache only; otherwise unknown |
+| F11 | C08 → network/cache | Attempted artifact/current-head resolution | Explicit verification need | Empty resolver/current-head configuration under RHP-DR-002 D2-A; refuse before network/cache; no discovery or inferred authority | `unavailable`/`unknown`; no request and no cache write |
 | F12 | C05/C06/C07/C09 → C03 | Exact signing inputs | Final authorization | Request/nonce/verifier/items/expiry binding, current capability evidence/artifact, local auth bound to exact operation/state for at most 300 seconds, one-shot authorization, current key state | No output on cancellation/failure/stale client |
 | F13 | C03 → C09 | Immutable signed presentation bytes/hash | Successful signing | JCS/domain separation, persist before release, identical retry | Through expiry/retry window and history rule |
 | F14 | C09 → C12 | Signed presentation file/clipboard | Explicit holder action | Exact bytes, user warning, no hidden metadata, no guaranteed clipboard erasure claim | Outside app control after release |
-| F15 | C09 → C13 | Signed presentation HTTPS POST | Explicit holder action and allowlisted destination | Exact origin/path, no redirects, timeout/size/type, no mutated retry, distinguish response states | Recipient-controlled after delivery; local receipt only |
-| F16 | C09/C13 → C10 | Local receipt | Delivery attempt | Store destination authority/origin, signed purpose, disclosed items, byte hash, time, outcome; no undisclosed data | Holder-controlled; deletable; no sync |
-| F17 | C06/C05 → backup export | Approved encrypted backup package | Explicit holder action | OWNER-RHP-08 approval, authenticated format, bounded derivation, scope disclosure, verification | User-controlled external file |
-| F18 | Backup file → C03/C05/C06 | Restore candidate | Explicit holder action | Validate complete package before write, rollback/authority binding, local auth, atomic replace/merge | Rejected input discarded; accepted protected state |
-| F19 | C06/C05 → C06/C05 | Rotation/add/remove/compromise transition | Explicit sensitive action | Upstream lifecycle/recipient rules, local auth, atomic update, consequence warning | Versioned lifecycle evidence |
+| F15 | C09 → network | Attempted HTTPS/QR/deep-link/background presentation delivery | Any trigger | Feature absent; empty delivery origins; refuse before network or carrier generation under RHP-DR-002 D2-A | No request and no output |
+| F16 | C09/C12 → C10 | Local receipt | Explicit file/clipboard delivery attempt | Store local transport, signed purpose, disclosed items, byte hash, time, outcome; no undisclosed data and no recipient-acknowledgement claim | Holder-controlled; deletable; no sync |
+| F17 | C06/C05 → external export | Attempted private-key backup/export | Any trigger | Feature absent; final keys non-extractable; refuse before serialization under RHP-DR-002 D5-A | No output |
+| F18 | External package/account/sync → C03/C05/C06 | Attempted same-authority restore, device addition, or account recovery | Any trigger | Feature absent; refuse before parse, key access, or state write under RHP-DR-002 D5-A | No state change |
+| F19 | C06/C05 → C06/C05 or deletion | Same-device key inspection/rotation/compromise action or authority abandonment | Explicit sensitive action | Fresh WebAuthn UV, current artifact/capability evidence, atomic Core transition only with an existing authorized local successor; otherwise terminal loss; authenticated deletion | Versioned local lifecycle evidence or verified local deletion |
 | F20 | C02/C06 → deletion | Local keys/state/history/cache | Explicit deletion or exit procedure | Scope display, re-auth where approved, no silent reset, post-delete verification | Removed locally; external copies unaffected |
 | F21 | C01/C14 → user | Preview limitations and emergency notices | Navigation/incident | Notices network-only, explicit timestamp/state, no implication of real-data activation | Public mutable notice |
 | F22 | Repository → C15 → C01 | Source, synthetic tests, built public artifact | Push/authorized deployment | Least privilege, exact lockfile, demo flag until release gates, no secrets, artifact audit | GitHub retention; public artifact only |
@@ -105,7 +105,7 @@ Requests and presentations must never be placed in query strings, fragments sent
 The service worker may cache only the reviewed application shell and immutable approved resources. It must not cache:
 
 - `/notices/` or an emergency response;
-- credential, request, presentation, backup, or restore bytes;
+- credential, request, presentation, prohibited backup/restore input, or local deletion state;
 - resolver/current-head responses unless a separate authenticated application cache handles them;
 - POST bodies/responses, opaque responses, authorization state, keys, decrypted content, or local history.
 
@@ -120,7 +120,7 @@ The release must prove convergence within 15 minutes after an emergency replacem
 The application sends no analytics or operational telemetry. Local diagnostics use a stable code and a safe summary. The following are prohibited in logs and CI artifacts:
 
 - private/public keys when used as cross-event identifiers;
-- holder authorities, portfolio/credential URIs, stable local IDs, claim values, nonces, presentation IDs, signed bytes, backup bytes, and decrypted input;
+- holder authorities, portfolio/credential URIs, stable local IDs, claim values, nonces, presentation IDs, signed bytes, prohibited backup/restore input, and decrypted input;
 - attacker-controlled raw errors, full URLs, clipboard content, and resolver response bodies.
 
 Support intake and crash reporting remain disabled until OWNER-RHP-09, OWNER-RHP-10, and OWNER-RHP-13 define the legal purpose, fields, access, retention, deletion, and incident boundary.
@@ -132,7 +132,7 @@ Support intake and crash reporting remain disabled until OWNER-RHP-09, OWNER-RHP
 | Replay tuples | Retain through expiry plus skew, then delete under versioned rule | OWNER-RHP-10 |
 | Signed retry bytes | Retain only for bounded delivery/retry and local evidence needs | OWNER-RHP-10 |
 | Local privacy history | Local, holder-controlled, manually deletable, no sync | OWNER-RHP-10 |
-| Backups | No feature until format and recovery policy approved | OWNER-RHP-08/09/10 |
+| Private-key backup/restore and device addition | Excluded by RHP-DR-002 D5-A; no success path or exported private-key bytes | OWNER-RHP-08 |
 | Hosting logs | No application access; document GitHub retention/controls | OWNER-RHP-09/12 |
 | Security reports | No intake until private channel and retention approved | OWNER-RHP-13 |
 

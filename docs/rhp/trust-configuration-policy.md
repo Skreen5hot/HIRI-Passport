@@ -1,8 +1,10 @@
 # Real Holder Preview trust-configuration policy
 
-Status: PROVISIONAL FAIL-CLOSED BASELINE — owner approval remains open
+Status: APPROVED FAIL-CLOSED TARGET BASELINE — implementation and activation evidence remain open
 
 Owner gate: `OWNER-RHP-04`
+
+Authority: RHP-DR-002 D2-A, signed tag `RHP-DR-002-approved-2026-07-20`
 
 Release scope: holder-only, self-assertions only, no issuer/BVS services
 
@@ -31,7 +33,7 @@ The safe initial configuration is:
 }
 ```
 
-This is a build baseline, not an owner-approved production configuration. Empty arrays are intentional controls:
+RHP-DR-002 D2-A approves these exact empty sets as the target production trust configuration for the current release. Activation still requires a hash-bound runtime configuration and all implementation, test, threat-review, and release gates. Empty arrays are intentional controls:
 
 - no issuer or BVS credential is trusted or issued;
 - no display name/domain is verified organizational identity;
@@ -68,7 +70,7 @@ Under the empty identity baseline:
 - the UI must show those facts separately;
 - consent may be offered only if the release policy explicitly permits interaction with identity-unknown verifier authorities and shows that limitation at the decision point.
 
-That final interaction policy remains part of OWNER-RHP-04 approval; no UI may infer it from this draft.
+RHP-DR-002 D2-A permits that interaction only after the complete validation, inert rendering, persistent replay defense, fixed identity-unknown warning, complete-public preview, local file/paste ingress, file/clipboard egress, and mandatory local-authentication controls pass. The approval does not permit a UI to infer identity, status, trust, or policy success.
 
 ## 5. Issuer credentials and status
 
@@ -153,9 +155,9 @@ Trust configuration is public, versioned, closed-shape, and hash-bound to one re
 
 The same configuration version must never resolve to different bytes. An older version cannot replace a newer authenticated version. Emergency removal uses a signed control record and does not rewrite historical cryptographic evidence.
 
-## 12. Decision required to close OWNER-RHP-04
+## 12. Approved baseline and remaining activation conditions
 
-For the current self-assertion-only release, the recommended first approval is the empty baseline in Section 2 plus an explicit decision on whether cryptographically valid requests from identity-unknown verifier authorities may reach informed consent. Approval must also confirm:
+RHP-DR-002 D2-A approves the empty baseline in Section 2 and permits a cryptographically valid request from an identity-unknown verifier authority to reach informed consent only after every required control and dependency passes. The authenticated decision confirms:
 
 - no issuer, BVS, resolver, current-head, identity-anchor, remote-resource, or HTTPS-delivery origins;
 - file/paste ingress and file/clipboard egress only;
@@ -163,4 +165,4 @@ For the current self-assertion-only release, the recommended first approval is t
 - policy remains `not-evaluated`;
 - additions require a new signed configuration decision.
 
-Until that decision is signed, real request consent and real presentation signing remain disabled, although their fail-closed implementation and synthetic tests may proceed.
+The policy decision is complete, but the activation gate is not. Real request consent and real presentation signing remain disabled until the production resource set, request validation, replay storage, hostile-text rendering, complete-public preview, mandatory WebAuthn UV, signing, local delivery, threat-model re-review, and applicable release gates pass. Any non-empty trust entry or network ingress/egress requires a successor signed decision.

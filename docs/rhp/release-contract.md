@@ -10,14 +10,23 @@ Mandatory review: 2026-10-20 at 00:00:00 UTC
 
 ## 1. Authority and precedence
 
-This contract translates the authenticated owner decisions in `RHP-DR-001-Real-Holder-Preview-Decision-Record-FINAL.md` into build constraints. The approved record is bound to:
+This contract translates the authenticated owner decisions in `RHP-DR-001-Real-Holder-Preview-Decision-Record-FINAL.md` and `RHP-DR-002-Technical-Policy-Decision-Record-FINAL.md` into build constraints.
+
+RHP-DR-001 is bound to:
 
 - decision commit `6808692b655770a7ee26a72cd50d5d54226b576f`;
 - exact-file SHA-256 `5fb10c01aa080a47f4d0ddfd58683babd1c5745e4f5fa3617839f55bf1d024f3`;
 - signed tag `RHP-DR-001-approved-2026-07-20`;
 - signer fingerprint `07171B3AF6042998D1ADDEE0DE640D2A3317B186`.
 
-If this contract conflicts with the signed decision, the signed decision controls. For protocol behavior, the pinned upstream HIRI specifications control first, followed by the Core v2.0.0 Working Draft, BVP v3.0.0 Working Draft where applicable, and UX v2.0.0 Working Draft. This contract may narrow behavior but may not weaken a protocol or safety requirement.
+RHP-DR-002 Final 1 is bound to:
+
+- decision commit `03b24529f999165c2b2ea23520c43ad6e00f9e6f`;
+- exact-file SHA-256 `17e4f3d7ee47b823020a7595d72422f1f99376a03d848a7d6b917d92be25a36f`;
+- signed tag `RHP-DR-002-approved-2026-07-20`;
+- signer fingerprint `2B7BA5C378749418B1D051D9C01347EA45970647`.
+
+If this contract conflicts with either signed decision, the applicable signed decision controls. For protocol behavior, the pinned upstream HIRI specifications control first, followed by the Core v2.0.0 Working Draft, BVP v3.0.0 Working Draft where applicable, and UX v2.0.0 Working Draft. This contract may narrow behavior but may not weaken a protocol or safety requirement.
 
 ## 2. Release definition
 
@@ -27,9 +36,11 @@ The Real Holder Preview is a holder-only, public-audience, incomplete real-key p
 - a verifier, issuer, BVS, resolver, or policy-administration product;
 - Passport-Core, Passport-Interoperable, Passport-Hardened, Candidate, production, stable, certified, or generally available conformance claims.
 
-The preview may demonstrate real holder key creation, protected local state, holder self-assertions, signed request inspection, explicit consent, signed presentations, local delivery, local privacy history, routine key lifecycle, and supported backup/device operations only after the applicable gates in this contract are satisfied.
+The preview may demonstrate real holder key creation, protected local state, holder self-assertions, signed request inspection, explicit consent, signed presentations, file/clipboard delivery, local privacy history, safe same-device key lifecycle where a successor local method exists, and authenticated authority abandonment only after the applicable gates in this contract are satisfied. It does not support private-key backup/restore or device addition.
 
 ## 3. Approved owner selections
+
+### 3.1 RHP-DR-001 release boundary
 
 | Decision | Approved selection | Build consequence |
 |---|---|---|
@@ -42,6 +53,16 @@ The preview may demonstrate real holder key creation, protected local state, hol
 | Exit | Review-date trigger; disposition A | On 2026-10-20, absence of a successor record requires exit and local deletion instructions. |
 | Enforcement | Manual | Follow `docs/rhp/manual-expiry-and-emergency-control.md`; do not imply automated expiry. |
 
+### 3.2 RHP-DR-002 technical policy
+
+| Decision | Approved selection | Build consequence |
+|---|---|---|
+| D1 | Project-preview resource set after independent technical review | Build the immutable preview namespace and manifest tooling, but keep the production registry empty until a non-author reviewer verifies the exact package and the owner signs its hash. |
+| D2 | Empty trust sets with warned identity-unknown requests | Permit only local file/paste request ingress and file/clipboard egress. Issuer/BVS artifacts remain unsupported or inspection-only; policy remains `not-evaluated`; no live request or remote-delivery endpoint exists. |
+| D3 | Evidence-first Windows Chromium and Android Chromium | Build capability contracts first, then request physical testing. Approve no browser version until exact physical evidence passes; every other platform remains inspect-only. |
+| D4 | Non-extractable keys plus mandatory WebAuthn user verification | Require fresh WebAuthn UV for authority creation and sensitive key actions, with no weaker production fallback and no hardware-backed claim without separate evidence. |
+| D5 | Disposable single-device authority | Provide no private-key backup/export, same-authority restore, device addition/removal, or account/browser-sync recovery. Require irreversible-loss acknowledgement and authenticated local abandonment/deletion. |
+
 ## 4. Origin and deployment boundary
 
 The only approved public origin is `https://hiri-protocol.org` with root-path hosting. The mutable public notice channel is `https://hiri-protocol.org/notices/` and the approved limitation page is `https://hiri-protocol.org/preview/`.
@@ -52,7 +73,7 @@ The following are not real-data origins:
 - localhost or loopback except automated tests using generated non-authoritative state;
 - preview deployments, pull-request artifacts, forks, mirrors, alternate ports, subdomains, or lookalike domains.
 
-Origin equality includes scheme, hostname, port, and expected base path. A failed or ambiguous origin check must occur before database access, key creation, import, signing, backup, restore, resolver use, or delivery. Path prefixes are not storage or service-worker isolation.
+Origin equality includes scheme, hostname, port, and expected base path. A failed or ambiguous origin check must occur before database access, key creation, import, signing, same-device rotation, authority abandonment, resolver use, or local delivery. Path prefixes are not storage or service-worker isolation.
 
 ## 5. Runtime separation
 
@@ -80,9 +101,9 @@ A workflow is permitted only when its dependencies are complete and its required
 5. create clearly labeled persistent or ephemeral self-assertions under pinned schemas;
 6. inspect a bounded signed request only after exact structural, signature, method, time, resource, and replay checks;
 7. consent to and sign one exact presentation with complete-public consequences shown;
-8. deliver identical signed bytes by an explicitly selected local transport or owner-allowlisted HTTPS destination;
+8. deliver identical signed bytes only by an explicitly selected file-download or clipboard action;
 9. retain and delete holder-controlled local history;
-10. perform only the backup and device operations approved under `OWNER-RHP-08`.
+10. inspect local key state, perform same-device rotation only when a safe authorized local successor exists, or irreversibly abandon and locally delete the authority.
 
 No workflow may infer truth, legal effect, organizational identity, status freshness, or policy acceptance from a valid signature alone.
 
@@ -98,6 +119,8 @@ The preview must not enable or claim:
 - selective disclosure or field-confidential public credentials;
 - confirmed-current status without an owner-configured issuer-authoritative source;
 - recovery of the same authority after loss of every authorized key;
+- private-key backup/export, same-authority restore, device addition/removal, recipient-based continuity, browser-sync recovery, or vendor-account recovery;
+- QR, HTTPS POST, deep-link, background, or any other presentation delivery beyond explicit file or clipboard output;
 - proximity, NFC, or Bluetooth security/conformance;
 - verifier workspace coverage;
 - a hardware-backed, hardware-wallet, passkey, or attested-key assurance unless separately evidenced;
@@ -124,10 +147,10 @@ It must not imply that a self-assertion is issuer evidence, that a credential is
 | Gate | Required before | Safe state while open |
 |---|---|---|
 | OWNER-RHP-03 | Enabling a production resource manifest | Empty registry; production success paths unavailable |
-| OWNER-RHP-04 | Trusting issuer, verifier identity, resolver, or current-head evidence | Empty allowlists; identity/status unknown |
+| OWNER-RHP-04 | Activating warned identity-unknown request consent or adding any trust entry | No consent/signing until controls pass; trust sets remain empty; identity/status unknown |
 | OWNER-RHP-06 | Approving real-authority browsers/devices | Inspect-only on every unapproved platform |
-| OWNER-RHP-07 | Real key creation or sensitive signing | No real authority creation |
-| OWNER-RHP-08 | Backup, restore, or device lifecycle | Features disabled; non-durable limitation shown |
+| OWNER-RHP-07 | Real key creation or any sensitive key action | No real authority creation until mandatory WebAuthn UV and protected-key controls pass |
+| OWNER-RHP-08 | Real authority creation, same-device rotation, abandonment, or deletion | No real authority creation until no-backup/device-add exclusions and irreversible-loss UX pass |
 | OWNER-RHP-09/10 | Collecting real participant or operational data | No contact collection, analytics, or server-side participant data |
 | OWNER-RHP-11/12/13/16 | Public real-data release | Synthetic deployment only; release evidence reports no-go |
 
