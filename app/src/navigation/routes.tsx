@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { HomeRoute } from "../routes/home/home";
-import { AcquireRoute } from "../routes/acquire/acquire";
 import { RequestIngressRoute } from "../routes/request/request-ingress";
-import { VerifierIngressRoute } from "../routes/verifier/verifier-ingress";
+import { DemoAcquireRoute } from "../demo/demo-acquire";
+import { DemoVerifierRoute } from "../demo/demo-verifier";
 import { SettingsRoute } from "../routes/settings/keys-devices";
 import { WelcomeRoute } from "../routes/onboarding/welcome";
 import { CorrelationRoute } from "../routes/onboarding/correlation";
@@ -29,9 +29,9 @@ export const ROUTES: Record<string, { title: string; content: ReactNode }> = {
   "/onboarding/authority": { title: "Authority setup", content: <AuthoritySetupRoute /> },
   "/onboarding/backup": { title: "Backup setup", content: <BackupSetupRoute /> },
   "/home": { title: "Passport", content: <HomeRoute /> },
-  "/acquire": { title: "Add a credential", content: <AcquireRoute /> },
+  "/acquire": { title: "Add a credential", content: <DemoAcquireRoute /> },
   "/request": { title: "Review a request", content: <RequestIngressRoute /> },
-  "/verify": { title: "Verify a presentation", content: <VerifierIngressRoute /> },
+  "/verify": { title: "Verify a presentation", content: <DemoVerifierRoute /> },
   "/settings": { title: "Keys and settings", content: <SettingsRoute /> },
   "/settings/rotation": { title: "Rotate a key", content: <RotationRoute /> },
   "/settings/device-add": { title: "Add a device", content: <DeviceAddRoute /> },

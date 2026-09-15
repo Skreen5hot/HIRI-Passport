@@ -50,6 +50,30 @@ export const DEMO_CREDENTIALS: CredentialRecord[] = [
   }
 ];
 
+/**
+ * A deterministic fourth record used by the public demo's Add workflow. It is
+ * deliberately kept out of DEMO_CREDENTIALS so every reload starts from the
+ * same three-record portfolio.
+ */
+export const DEMO_ADDED_CREDENTIAL: CredentialRecord = Object.freeze({
+  recordId: "synthetic-course-04",
+  title: "Safety Training Completion",
+  issuer: "Example Training Provider (synthetic)",
+  credentialType: "CourseCompletionCredential",
+  provenance: "direct-issuer",
+  status: "unknown",
+  cryptography: "valid",
+  issuerIdentity: "unknown",
+  policy: "not-evaluated",
+  updatedAt: "2026-07-21T12:00:00Z",
+  publicContent: true,
+  claims: { Course: "Example Workplace Safety", Result: "Completed" },
+  manifestHash: hash("4"),
+  contentHash: hash("5"),
+  schema: "https://synthetic.invalid/schemas/course-completion/v1",
+  schemaHash: hash("6")
+});
+
 export const DEMO_HISTORY: PrivacyEvent[] = [{ id: "history-1", verifier: "Example permit portal (synthetic)", purpose: "Confirm an active engineering license", disclosed: ["Professional Engineer"], at: "2026-07-20T14:11:00Z", delivery: "delivered" }];
 
 export const DEMO_REQUEST = JSON.stringify({

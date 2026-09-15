@@ -5,7 +5,7 @@
 
 HIRI Passport is a mobile-first exploration of holder-controlled digital credentials: inspect what a credential says, keep different evidence questions separate, review a disclosure request, and make an explicit sharing decision.
 
-> **OpenAI Build Week submission status:** the public application is a **Synthetic Demo** using generated sample data. It creates no real keys, accepts no real credentials, performs no production identity verification, and makes no conformance or production-readiness claim.
+> **Current public status:** the application is a **Synthetic Demo** using generated sample data. It creates no real keys, accepts no real credentials, performs no production identity verification, and makes no conformance or production-readiness claim.
 
 ## Try the working demo
 
@@ -13,7 +13,7 @@ HIRI Passport is a mobile-first exploration of holder-controlled digital credent
 - Direct sample portfolio: [open the Synthetic Demo passport](https://hiri-protocol.org/#/home)
 - No account, login, API key, or test credential is required.
 
-The demo is intentionally labeled on every screen. It is free to use and will remain available in its submitted form throughout the Build Week judging period.
+The demo is intentionally labeled on every screen and is free to use.
 
 ## What the demo shows
 
@@ -21,21 +21,22 @@ The demo is intentionally labeled on every screen. It is free to use and will re
 - Separate results for cryptography, credential status, issuer identity, provenance, and relying-party policy instead of one misleading aggregate trust badge.
 - Credential detail with inspectable content, schemas, and hashes.
 - Local request import and an explicit consent review with a visible decline path.
-- Synthetic presentation, delivery, verification, privacy-history, key-lifecycle, offline, and update states.
+- A working synthetic Add flow that inserts a fixed in-memory sample without accepting real data, plus a synthetic verifier that keeps unknown and not-evaluated evidence explicit.
+- Synthetic presentation, delivery, privacy-history, key-lifecycle, offline, and update states.
 - Keyboard, zoom, reduced-motion, hostile-text, and screen-reader-oriented acceptance coverage.
 - A compile-time boundary between `synthetic-demo` and the fail-closed `real-holder-preview` composition.
 
 All names, organizations, credentials, requests, identifiers, and hashes shown by the public demo are synthetic or non-authoritative.
 
-## Sixty-second judge walkthrough
+## Sixty-second walkthrough
 
 1. Open the [sample passport](https://hiri-protocol.org/#/home) and note the persistent **Synthetic demo** ribbon.
 2. Open **Professional Engineer**. Compare the independent Cryptography, Status, Issuer identity, Provenance, and Policy results.
 3. Select **Present**, choose **Load synthetic consent preview**, and then **Inspect request**.
 4. Review the fixed unknown-identity warning, requested field and purpose, and visible **Decline request** option.
-5. Visit **Verify** or **Settings** to inspect additional simulated states without creating a real authority or key.
+5. Visit **Add** to insert a fixed in-memory credential, then **Verify** to inspect separate synthetic evidence results without creating a real authority or key.
 
-Detailed judge instructions are in [docs/build-week-2026/JUDGES.md](docs/build-week-2026/JUDGES.md).
+The original Build Week judge instructions remain archived in [docs/build-week-2026/JUDGES.md](docs/build-week-2026/JUDGES.md).
 
 ## Run locally
 
